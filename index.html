@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NorthStar GRC & ITSM Demonstration Portal</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">N</div>
+      <div><strong>NorthStar</strong><span>GRC & ITSM Portal</span></div>
+    </div>
+    <nav>
+      <button class="nav-item active" data-page="dashboard">▦ <span>Dashboard</span></button>
+      <div class="nav-label">IDENTITY & ACCESS</div>
+      <button class="nav-item" data-page="password">⌕ <span>Password Verification</span></button>
+      <button class="nav-item" data-page="newhire">＋ <span>New Hire</span></button>
+      <button class="nav-item" data-page="termination">× <span>Termination</span></button>
+      <button class="nav-item" data-page="access">▣ <span>Access Modification</span></button>
+      <button class="nav-item" data-page="transfer">⇄ <span>Employee Transfer</span></button>
+      <button class="nav-item" data-page="loa">◷ <span>Leave of Absence</span></button>
+      <button class="nav-item" data-page="periodic">✓ <span>Periodic Access Review</span></button>
+      <div class="nav-label">IT SERVICE MANAGEMENT</div>
+      <button class="nav-item" data-page="change">↻ <span>Change Management</span></button>
+      <button class="nav-item" data-page="assets">▤ <span>Asset Management</span></button>
+      <div class="nav-label">GRC & AUDIT</div>
+      <button class="nav-item" data-page="governance">▤ <span>Governance</span></button>
+      <button class="nav-item" data-page="doccontrol">▥ <span>Document Registers</span></button>
+      <button class="nav-item" data-page="controls">✓ <span>Controls Library</span></button>
+      <button class="nav-item" data-page="audit">◫ <span>Audit Dashboard</span></button>
+      <button class="nav-item" data-page="itgc">◈ <span>ITGC Audit &amp; Controls</span></button>
+      <div class="itgc-subnav">
+        <button class="itgc-subnav-item" data-itgc-target="itgc-overview">Overview</button>
+        <button class="itgc-subnav-item" data-itgc-target="itgc-domain1">1. User Access Management</button>
+        <button class="itgc-subnav-item" data-itgc-target="itgc-domain2">2. Change Management</button>
+        <button class="itgc-subnav-item" data-itgc-target="itgc-domain3">3. IT Operations</button>
+        <button class="itgc-subnav-item" data-itgc-target="itgc-domain4">4. Infrastructure</button>
+        <button class="itgc-subnav-item" data-itgc-target="itgc-domain5">5. Asset Management</button>
+        <button class="itgc-subnav-item" data-itgc-target="itgc-domain6">6. Policies &amp; Procedures</button>
+      </div>
+      <button class="nav-item" data-page="vendor">◉ <span>Vendor Risk Management</span></button>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="demo-badge">DEMONSTRATION</div>
+      Fictional environment<br>All data is simulated
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="crumb">NorthStar Community Credit Union</div>
+        <h1 id="pageTitle">GRC & ITSM Dashboard</h1>
+      </div>
+      <div class="user-chip"><span class="status-dot"></span> Demo Analyst</div>
+    </header>
+
+    <section id="dashboard" class="page active-page">
+      <div class="hero">
+        <div>
+          <span class="eyebrow">PORTFOLIO DEMONSTRATION</span>
+          <h2>Operational processes built to be <em>controlled, measurable and auditable.</em></h2>
+          <p>Explore simulated IAM, ITSM, asset and GRC workflows demonstrating how an operational request becomes a governed business process.</p>
+        </div>
+        <div class="hero-visual"><div class="shield">✓</div><span>CONTROLLED<br>PROCESS</span></div>
+      </div>
+
+      <div class="section-head"><div><h3>Control environment</h3><p>Illustrative current-state metrics</p></div></div>
+      <div class="cards four">
+        <div class="metric"><span>IAM Compliance</span><strong>98%</strong><small>↑ 2.1% this quarter</small></div>
+        <div class="metric"><span>Policy Currency</span><strong>94%</strong><small>3 reviews due</small></div>
+        <div class="metric"><span>Open Audit Findings</span><strong>4</strong><small>1 high priority</small></div>
+        <div class="metric"><span>Asset Reconciliation</span><strong>96%</strong><small>Monthly control</small></div>
+      </div>
+
+      <div class="cards two">
+        <div class="panel">
+          <div class="panel-title"><h3>Featured demonstration</h3><span class="pill blue">IAM</span></div>
+          <h4>Password Verification & Reset</h4>
+          <p>Walk through identity verification, decision points, escalation and audit evidence.</p>
+          <button class="primary" onclick="showPage('password')">Launch demonstration →</button>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>How to use this portfolio</h3><span class="pill">INTERVIEW</span></div>
+          <ol class="steps">
+            <li><b>Experience</b> the process as an analyst.</li>
+            <li><b>Inspect</b> the controls behind each step.</li>
+            <li><b>Audit</b> the evidence and test procedure.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="password" class="page">
+      <div class="password-demo-card">
+        <div class="password-heading">
+          <div class="lock-icon">🔐</div>
+          <div>
+            <h2>Password Verification Demonstration</h2>
+            <p>Preventive IAM Control</p>
+          </div>
+        </div>
+        <div class="password-demo-grid">
+          <div class="password-form">
+            <h3>Employee Information</h3>
+            <label>Employee Name<input id="pwName" value="Sarah Mitchell"></label>
+            <label>Employee ID<input id="pwEmployeeId" value="104582"></label>
+            <label>Department<select id="pwDept"><option>Member Services</option><option>Branch Operations</option><option>Finance</option><option>Human Resources</option><option>Technology</option></select></label>
+            <label>Verification Code (Demo)
+              <input id="verifyCode" type="text" inputmode="numeric" maxlength="4" placeholder="Enter 2468">
+              <small class="field-help">Demo code: <b>2468</b></small>
+            </label>
+            <button type="button" class="primary full-width" id="verifyIdentityButton">Verify Identity</button>
+            <button type="button" class="workflow-link" id="viewPasswordWorkflow">View Workflow</button>
+          </div>
+          <div class="password-result-panel">
+            <h3>Verification Result</h3>
+            <div id="pwStatus" class="status-text"><span class="result-label">No verification performed.</span></div>
+            <hr>
+            <h3>Audit Evidence</h3>
+            <div class="audit-detail"><b>Control ID:</b> IAM-PR-001</div>
+            <div class="audit-detail"><b>Control Owner:</b> Service Desk</div>
+            <div class="audit-detail"><b>Evidence:</b> Ticket + Analyst Verification</div>
+            <div class="audit-detail"><b>Risk:</b> Unauthorized Password Reset</div>
+            <button id="resetButton" class="reset-button" disabled onclick="resetPassword()">Reset Password</button>
+            <div id="resetResult" class="reset-result hidden"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="newhire" class="page">
+<div class="page-intro"><span class="eyebrow">IAM + ITSM WORKFLOW</span><h2>New Hire Request</h2><p>Complete a simulated new-hire request and see how the workflow creates and routes the required downstream work.</p></div>
+<div class="panel"><div class="panel-title"><h3>Employee Information</h3><span class="pill blue">PARENT REQUEST</span></div>
+<div class="form-grid">
+<label>First Name<input id="nhFirst" placeholder="e.g. Alex"></label><label>Last Name<input id="nhLast" placeholder="e.g. Morgan"></label>
+<label>Employee ID<input id="nhId" placeholder="e.g. NS-10482"></label><label>Start Date<input id="nhDate" type="date"></label>
+<label>Department<select id="nhDept"><option>Member Services</option><option>Branch Operations</option><option>Finance</option><option>Human Resources</option><option>Technology</option></select></label>
+<label>Job Title<select id="nhRole"><option>Member Services Representative</option><option>Branch Manager</option><option>Finance Analyst</option><option>IT Support Analyst</option><option>Administrative Assistant</option></select></label>
+<label>Manager<input id="nhManager" placeholder="e.g. Jordan Lee"></label></div>
+<h4 class="form-section-title">IT Requirements</h4>
+<div class="yes-no-grid">
+<div class="yn-row"><span>Windows / AD Account Required?</span><label><input type="radio" name="windows" value="Y" checked> Y</label><label><input type="radio" name="windows" value="N"> N</label></div>
+<div class="yn-row"><span>Laptop Required?</span><label><input type="radio" name="laptop" value="Y" checked> Y</label><label><input type="radio" name="laptop" value="N"> N</label></div>
+<div class="yn-row"><span>Monitor(s) Required?</span><label><input type="radio" name="monitors" value="Y"> Y</label><label><input type="radio" name="monitors" value="N" checked> N</label></div>
+<div id="nhMonitorCountWrap" class="conditional-field hidden"><label>Number of Monitor(s)<input id="nhMonitorCount" type="number" min="1" step="1" value="2"></label></div>
+<div class="yn-row"><span>Docking Station Required?</span><label><input type="radio" name="dock" value="Y"> Y</label><label><input type="radio" name="dock" value="N" checked> N</label></div>
+<div class="yn-row"><span>Mobile Device Required?</span><label><input type="radio" name="mobile" value="Y"> Y</label><label><input type="radio" name="mobile" value="N" checked> N</label></div>
+<div class="yn-row"><span>Desktop Phone Required?</span><label><input type="radio" name="phone" value="Y"> Y</label><label><input type="radio" name="phone" value="N" checked> N</label></div>
+<div class="yn-row"><span>Headset Required?</span><label><input type="radio" name="headset" value="Y"> Y</label><label><input type="radio" name="headset" value="N" checked> N</label></div>
+<div class="yn-row"><span>Other IT Equipment Required?</span><label><input type="radio" name="otherEquipment" value="Y"> Y</label><label><input type="radio" name="otherEquipment" value="N" checked> N</label></div>
+<div id="nhOtherEquipmentWrap" class="conditional-field hidden"><label>Other IT Equipment Details<textarea id="nhOtherEquipment" rows="2" placeholder="Enter the required equipment..."></textarea></label></div>
+<div class="yn-row"><span>Desktop Computer Required?</span><label><input type="radio" name="desktop" value="Y"> Y</label><label><input type="radio" name="desktop" value="N" checked> N</label></div>
+<h4 class="form-section-title compact-section-title">Identity / Access Requirements</h4>
+<div class="yn-row"><span>Microsoft 365 / Email Required?</span><label><input type="radio" name="email" value="Y"> Y</label><label><input type="radio" name="email" value="N" checked> N</label></div>
+<div class="yn-row"><span>VPN / Remote Access Required?</span><label><input type="radio" name="vpn" value="Y"> Y</label><label><input type="radio" name="vpn" value="N" checked> N</label></div>
+<div class="yn-row"><span><span class="yn-label">Application / System Access Required?</span><small class="conditional-note hidden" data-note-for="apps">Refer to position within User Access Matrix</small></span><label><input type="radio" name="apps" value="Y"> Y</label><label><input type="radio" name="apps" value="N" checked> N</label></div>
+<div id="nhNetworkAccessWrap" class="yn-row conditional-field hidden"><span><span class="yn-label">Network / Infrastructure Access Required?</span><small class="conditional-note hidden" data-note-for="network">Refer to position within User Access Matrix</small></span><label><input type="radio" name="network" value="Y"> Y</label><label><input type="radio" name="network" value="N" checked> N</label></div>
+<div class="yn-row"><span><span class="yn-label">Shared Drive / Team Resource Access Required?</span><small class="conditional-note hidden" data-note-for="shared">Refer to position within User Access Matrix</small></span><label><input type="radio" name="shared" value="Y"> Y</label><label><input type="radio" name="shared" value="N" checked> N</label></div>
+<div id="nhElevatedAccessWrap" class="hidden">
+<div class="yn-row"><span>IT Admin Account Required?</span><label><input type="radio" name="admin" value="Y"> Y</label><label><input type="radio" name="admin" value="N" checked> N</label></div>
+<div class="yn-row"><span>PAM / Privileged Access Required?</span><label><input type="radio" name="pam" value="Y"> Y</label><label><input type="radio" name="pam" value="N" checked> N</label></div>
+</div></div>
+<div id="nhJustificationWrap" class="conditional-field hidden"><label>Administrative / PAM Access Justification<textarea id="nhJustification" rows="3" placeholder="Explain the business requirement for elevated access..."></textarea></label></div>
+<div class="notice"><b>Workflow automation:</b> Selecting <b>Y</b> creates a child ticket assigned to the appropriate IT group. Required approvals are automatically routed to the appropriate IT manager for approval or rejection.</div>
+<div class="button-row"><button type="button" class="primary" id="submitNewHireButton">Submit New Hire Request →</button><button type="button" class="secondary" id="resetNewHireButton">Reset New Hire Demo</button></div><div id="nhResult" class="result hidden"></div></div>
+<div id="nhTicketPanel" class="panel hidden"><div class="panel-title"><h3>Generated Workflow</h3><span id="nhTicketStatus" class="pill blue">IN PROGRESS</span></div>
+<div id="nhTicketSummary" class="ticket-card"></div><h4>Child Tickets Generated</h4><div id="nhChildren" class="cards three"></div>
+<div class="callout"><b>Parent ticket control:</b> The parent remains open until all required child tickets, approvals and validation activities are completed.</div>
+<button type="button" class="workflow-link" id="viewNewHireWorkflow">View New Hire Workflow</button></div>
+</section>
+
+    <section id="termination" class="page">
+      <div class="page-intro"><span class="eyebrow">IAM + ITSM WORKFLOW</span><h2>Termination Process</h2><p>Complete a simulated termination request and see how access revocation, asset recovery and evidence are coordinated through downstream work.</p></div>
+      <div class="panel"><div class="panel-title"><h3>Termination Information</h3><span class="pill blue">PARENT REQUEST</span></div>
+      <div class="form-grid">
+      <label>First Name<input id="termFirst" placeholder="e.g. Alex"></label><label>Last Name<input id="termLast" placeholder="e.g. Morgan"></label>
+      <label>Employee ID<input id="termId" placeholder="e.g. NS-10482"></label><label>Termination Date<input id="termDate" type="date"></label>
+      <label>Department<select id="termDept"><option>Member Services</option><option>Branch Operations</option><option>Finance</option><option>Human Resources</option><option>Technology</option></select></label>
+      <label>Job Title<select id="termRole"><option>Member Services Representative</option><option>Branch Manager</option><option>Finance Analyst</option><option>IT Support Analyst</option><option>Administrative Assistant</option></select></label>
+      <label>Manager<input id="termManager" placeholder="e.g. Jordan Lee"></label>
+      <label>Termination Type<select id="termType"><option>Voluntary</option><option>Involuntary</option><option>Contract End</option><option>Retirement</option><option>Other</option></select></label>
+      <label>Effective Time<input id="termTime" type="time" value="17:00"></label>
+      <label>Immediate Termination?<select id="termImmediate"><option>No</option><option>Yes</option></select></label>
+      </div>
+      <h4 class="form-section-title">IT Termination Requirements</h4>
+      <div class="yes-no-grid">
+      <div class="yn-row"><span>Disable Windows / AD Account?</span><label><input type="radio" name="td_windows" value="Y" checked> Y</label><label><input type="radio" name="td_windows" value="N"> N</label></div>
+      <div class="yn-row"><span>Disable Email / Microsoft 365?</span><label><input type="radio" name="td_email" value="Y" checked> Y</label><label><input type="radio" name="td_email" value="N"> N</label></div>
+      <div class="yn-row"><span>Revoke VPN / Remote Access?</span><label><input type="radio" name="td_vpn" value="Y" checked> Y</label><label><input type="radio" name="td_vpn" value="N"> N</label></div>
+      <div class="yn-row"><span>Revoke Application Access?</span><label><input type="radio" name="td_apps" value="Y" checked> Y</label><label><input type="radio" name="td_apps" value="N"> N</label></div>
+      <div class="yn-row"><span>Revoke Mobile Device Access?</span><label><input type="radio" name="td_mobile" value="Y"> Y</label><label><input type="radio" name="td_mobile" value="N" checked> N</label></div>
+      <div class="yn-row"><span>Recover Laptop / Computer?</span><label><input type="radio" name="td_computer" value="Y" checked> Y</label><label><input type="radio" name="td_computer" value="N"> N</label></div>
+      <div class="yn-row"><span>Recover Mobile Device?</span><label><input type="radio" name="td_assetmobile" value="Y"> Y</label><label><input type="radio" name="td_assetmobile" value="N" checked> N</label></div>
+      <div class="yn-row"><span>Recover Desktop Phone?</span><label><input type="radio" name="td_phone" value="Y"> Y</label><label><input type="radio" name="td_phone" value="N" checked> N</label></div>
+      <div id="termElevatedAccessWrap" class="hidden">
+      <div class="yn-row"><span>Remove IT Admin Account?</span><label><input type="radio" name="td_admin" value="Y"> Y</label><label><input type="radio" name="td_admin" value="N" checked> N</label></div>
+      <div class="yn-row"><span>Remove PAM / Privileged Access?</span><label><input type="radio" name="td_pam" value="Y"> Y</label><label><input type="radio" name="td_pam" value="N" checked> N</label></div>
+      </div></div>
+      <div id="termDisableNote" class="notice hidden"><b>When Immediate Termination is set to Yes,</b> all access is to be disabled and the employee accounts would be removed by 11pm.</div>
+      <h4 class="form-section-title">After</h4>
+      <div class="notice termination-evidence-note"><b>Screenshot Evidence Requirement:</b> For every termination, capture a <b>before</b> and <b>after</b> screenshot for <b>each system</b>. The entire screen must be visible, including the date and time shown in the taskbar. Screenshots are required even when the employee does not have access to the system, to provide evidence that no access existed before or after the termination activity.</div>
+      <div class="notice"><b>Workflow automation:</b> Selecting <b>Y</b> creates a child ticket assigned to the appropriate IT group. Access-revocation and asset-recovery work is tracked independently and evidence is retained against the parent request.</div>
+      <div class="button-row"><button type="button" class="primary" id="submitTerminationButton">Submit Termination Request →</button><button type="button" class="secondary" id="resetTerminationButton">Reset Termination Demo</button></div><div id="termResult" class="result hidden"></div></div>
+      <div id="termTicketPanel" class="panel hidden"><div class="panel-title"><h3>Generated Workflow</h3><span class="pill blue">IN PROGRESS</span></div>
+      <div id="termTicketSummary" class="ticket-card"></div><h4>Child Tickets Generated</h4><div id="termChildren" class="cards three"></div>
+      <div class="callout"><b>Parent ticket control:</b> The parent remains open until all required child tickets, approvals, evidence and final validation activities are completed.</div>
+      <button type="button" class="workflow-link" id="viewTerminationWorkflow">View Termination Workflow</button></div>
+
+      <div class="panel termination-evidence-panel">
+        <div class="panel-title"><h3>Supporting Evidence</h3><span class="pill blue">AUDIT ARTIFACT</span></div>
+        <div class="evidence-template-card">
+          <div class="evidence-template-icon">▤</div>
+          <div class="evidence-template-content">
+            <h4>Termination Evidence Sheet</h4>
+            <p>A department-specific evidence checklist used to document termination access removal and retain before-and-after verification evidence for each applicable system or application.</p>
+            <div class="evidence-template-meta">
+              <span><b>Example Department:</b> Food &amp; Beverage</span>
+              <span><b>Systems Covered:</b> 15</span>
+              <span><b>Evidence:</b> Before + After screenshots</span>
+            </div>
+            <div class="callout evidence-template-note"><b>Department-specific design:</b> This example reflects one department's termination checklist. Each department would maintain a tailored checklist for the systems and applications used by that department.</div>
+            <a class="primary evidence-download" href="NorthStar_Termination_Evidence_Sheet_Food_Beverage_v2.docx" download>Open / Download Evidence Sheet →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="access" class="page">
+      <div class="page-intro"><span class="eyebrow">IAM + ITSM WORKFLOW</span><h2>Access Modification</h2><p>Submit a simulated request to add, modify or remove application access and see the resulting approval and child-ticket workflow.</p></div>
+      <div class="panel">
+        <div class="panel-title"><h3>Access Modification Request</h3><span class="pill blue">PARENT REQUEST</span></div>
+        <div class="form-grid access-form-grid">
+          <label>First Name<input id="amFirst" placeholder="e.g. Alex"></label>
+          <label>Last Name<input id="amLast" placeholder="e.g. Morgan"></label>
+          <label>Employee ID<input id="amId" placeholder="e.g. NS-10482"></label>
+          <label>Completion Date<input id="amDate" type="date"></label>
+          <label>Department<select id="amDept"><option>Member Services</option><option>Branch Operations</option><option>Finance</option><option>Human Resources</option><option>Technology</option></select></label>
+          <label>Job Title<select id="amRole"><option>Member Services Representative</option><option>Branch Manager</option><option>Finance Analyst</option><option>IT Support Analyst</option><option>Administrative Assistant</option></select></label>
+          <label>Manager<input id="amManager" placeholder="e.g. Jordan Lee"></label>
+          <div class="application-field"><span class="field-label">Application</span><div class="check-grid am-app-grid"><label><input type="checkbox" name="amApp" value="Core Banking" checked> Core Banking</label><label><input type="checkbox" name="amApp" value="Microsoft 365"> Microsoft 365</label><label><input type="checkbox" name="amApp" value="CRM"> CRM</label><label><input type="checkbox" name="amApp" value="File Services"> File Services</label><label><input type="checkbox" name="amApp" value="HRIS"> HRIS</label><label><input type="checkbox" name="amApp" value="Service Management"> Service Management</label></div></div>
+          <label>Request Type<select id="amType"><option>Add Access</option><option>Modify Access</option><option>Remove Access</option></select></label>
+          <label class="am-details-field">Provide Details of Request<textarea id="amDetails" rows="3" placeholder="Enter the specific access requested, changes required, or access to be removed..."></textarea></label>
+          <label class="reason-field">Reason for Request<select id="amReason"><option>New job responsibilities</option><option>Change in job duties</option><option>Department transfer</option><option>Application access required</option><option>Access correction</option><option>Access no longer required</option><option>Temporary access</option><option>Other business need</option></select></label>
+          <label>Approval<select id="amApproval"><option>Manager + Application Owner</option><option>Application Owner</option><option>Manager</option></select></label>
+        </div>
+        <div class="notice"><b>Application access control:</b> All Application access will be modified in accordance with the Technology departments User Access Matrix.</div>
+        <div class="notice"><b>Workflow automation:</b> The selected request type is routed to the appropriate application support group. The required approval is recorded before the access change is completed, and evidence is retained against the parent request.</div>
+        <div class="button-row"><button type="button" class="primary" id="submitAccessButton">Submit Access Request →</button><button type="button" class="secondary" id="resetAccessButton">Reset Access Demo</button></div>
+        <div id="amResult" class="result hidden"></div>
+      </div>
+      <div id="amTicketPanel" class="panel hidden"><div class="panel-title"><h3>Generated Workflow</h3><span id="amTicketStatus" class="pill blue">IN PROGRESS</span></div>
+        <div id="amTicketSummary" class="ticket-card"></div>
+        <h4>Child Tickets Generated</h4><div id="amChildren" class="cards three"></div>
+        <div class="callout"><b>Parent ticket control:</b> The parent remains open until the required approval, access change, validation and evidence activities are completed.</div>
+        <button type="button" class="workflow-link" id="viewAccessModificationWorkflow">View Access Modification Workflow</button>
+      </div>
+    </section>
+
+    <section id="transfer" class="page">
+      <div class="page-intro"><span class="eyebrow">IAM + ITSM WORKFLOW</span><h2>Employee Transfer</h2><p>Submit a simulated internal or external transfer request and see how access changes are coordinated, approved and validated.</p></div>
+      <div class="panel">
+        <div class="panel-title"><h3>Employee Transfer Request</h3><span class="pill blue">PARENT REQUEST</span></div>
+        <div class="form-grid access-form-grid">
+          <label>First Name<input id="trFirst" placeholder="e.g. Alex"></label>
+          <label>Last Name<input id="trLast" placeholder="e.g. Morgan"></label>
+          <label>Employee ID<input id="trId" placeholder="e.g. NS-10482"></label>
+          <label>Transfer Date<input id="trDate" type="date"></label>
+          <label>Department<select id="trDept"><option>Member Services</option><option>Branch Operations</option><option>Finance</option><option>Human Resources</option><option>Technology</option></select></label>
+          <label>Job Title<select id="trRole"><option>Member Services Representative</option><option>Branch Manager</option><option>Finance Analyst</option><option>IT Support Analyst</option><option>Administrative Assistant</option></select></label>
+          <label>Manager<input id="trManager" placeholder="e.g. Jordan Lee"></label>
+          <label>Request Type<select id="trType"><option>Internal Transfer</option><option>External Transfer</option></select></label>
+          <label>Reason for Request<select id="trReason"></select><span id="trReasonNote" class="conditional-note hidden"></span></label>
+          <label id="trBranchField" class="hidden">Enter Branch Name/Number<input id="trBranch" placeholder="e.g. Branch 102 – Welland"></label>
+          <label id="trContractField" class="hidden">Contract / Employment Change<select id="trContractType"><option>Permanent employment status change</option><option>Temporary employment status change</option><option>Contract renewal or extension</option><option>Change to employment terms</option><option>Other contract / employment change</option></select></label>
+          <label>Approval<select id="trApproval"></select></label>
+        </div>
+        <div id="trExternalFields" class="hidden">
+          <div class="form-grid access-form-grid transfer-detail-grid">
+            <label>New Department<select id="trNewDept"><option>Member Services</option><option>Branch Operations</option><option>Finance</option><option>Human Resources</option><option>Technology</option></select></label>
+            <label>New Job Title<select id="trNewRole"></select></label>
+            <label>New Manager<input id="trNewManager" placeholder="e.g. Taylor Smith"></label>
+          </div>
+          <div class="notice transfer-access-note"><b>Access control:</b> All access from previous job title is to be removed by Transfer Date.</div>
+          <div id="trAccessRemovalFields" class="transfer-access-removal hidden">
+            <h4 class="form-section-title compact-section-title">IT Access / Asset Removal Requirements</h4>
+            <div class="yes-no-grid">
+              <div class="yn-row"><span>Revoke VPN / Remote Access?</span><label><input type="radio" name="tr_vpn" value="Y" checked> Y</label><label><input type="radio" name="tr_vpn" value="N"> N</label></div>
+              <div class="yn-row"><span>Revoke Application Access?</span><label><input type="radio" name="tr_apps" value="Y" checked> Y</label><label><input type="radio" name="tr_apps" value="N"> N</label></div>
+              <div class="yn-row"><span>Revoke Mobile Device Access?</span><label><input type="radio" name="tr_mobile" value="Y"> Y</label><label><input type="radio" name="tr_mobile" value="N" checked> N</label></div>
+              <div class="yn-row"><span>Recover Laptop / Computer?</span><label><input type="radio" name="tr_computer" value="Y" checked> Y</label><label><input type="radio" name="tr_computer" value="N"> N</label></div>
+              <div class="yn-row"><span>Recover Mobile Device?</span><label><input type="radio" name="tr_assetmobile" value="Y"> Y</label><label><input type="radio" name="tr_assetmobile" value="N" checked> N</label></div>
+              <div id="trElevatedRemovalWrap" class="hidden">
+                <div class="yn-row"><span>Remove IT Admin Account?</span><label><input type="radio" name="tr_admin" value="Y"> Y</label><label><input type="radio" name="tr_admin" value="N" checked> N</label></div>
+                <div class="yn-row"><span>Remove PAM / Privileged Access?</span><label><input type="radio" name="tr_pam" value="Y"> Y</label><label><input type="radio" name="tr_pam" value="N" checked> N</label></div>
+              </div>
+            </div>
+          </div>
+          <div class="transfer-details-field"><label>Additional Details for Request<textarea id="trDetails" rows="3" placeholder="Provide any additional information needed to process the transfer request..."></textarea></label></div>
+        </div>
+        <div class="notice"><b>Workflow automation:</b> The transfer type determines the applicable reason and approval routing. Existing access is reviewed for removal or retention, and required new access is routed to the appropriate application support group.</div>
+        <div class="notice"><b>Workflow automation:</b> Selecting <b>Y</b> creates a child ticket assigned to the appropriate IT group. The Technology department will contact the originating department to schedule the return of any hardware assets marked for recovery. The Technology assets will be reimaged and either returned to the department or held until required by the department at a later date.</div>
+        <div class="button-row"><button type="button" class="primary" id="submitTransferButton">Submit Transfer Request →</button><button type="button" class="secondary" id="resetTransferButton">Reset Transfer Demo</button></div>
+        <div id="trResult" class="result hidden"></div>
+      </div>
+      <div id="trTicketPanel" class="panel hidden"><div class="panel-title"><h3>Generated Workflow</h3><span class="pill blue">IN PROGRESS</span></div>
+        <div id="trTicketSummary" class="ticket-card"></div>
+        <h4>Child Tickets Generated</h4><div id="trChildren" class="cards three"></div>
+        <div class="callout"><b>Parent ticket control:</b> The parent remains open until required approvals, access changes, validation and evidence activities are completed.</div>
+        <button type="button" class="workflow-link" id="viewTransferWorkflow">View Employee Transfer Workflow</button>
+      </div>
+    </section>
+
+    <section id="loa" class="page">
+      <div class="page-intro"><span class="eyebrow">IAM + ITSM WORKFLOW</span><h2>Leave of Absence</h2><p>Submit a simulated leave request and see how access is reviewed, controlled and validated before the employee returns.</p></div>
+      <div class="panel">
+        <div class="panel-title"><h3>Leave of Absence Request</h3><span class="pill blue">PARENT REQUEST</span></div>
+        <div class="form-grid access-form-grid">
+          <label>First Name<input id="loaFirst" placeholder="e.g. Alex"></label>
+          <label>Last Name<input id="loaLast" placeholder="e.g. Morgan"></label>
+          <label>Employee ID<input id="loaId" placeholder="e.g. NS-10482"></label>
+          <label>Completion Date<input id="loaDate" type="date"></label>
+          <label>Department<select id="loaDept"><option>Member Services</option><option>Branch Operations</option><option>Finance</option><option>Human Resources</option><option>Technology</option></select></label>
+          <label>Job Title<select id="loaRole"><option>Member Services Representative</option><option>Branch Manager</option><option>Finance Analyst</option><option>IT Support Analyst</option><option>Administrative Assistant</option></select></label>
+          <label>Manager<input id="loaManager" placeholder="e.g. Jordan Lee"></label>
+          <label>Request Type<select id="loaType"><option>Begin Leave</option><option>Extend Leave</option><option>Return from Leave</option></select></label>
+          <label>Access Action<select id="loaAction"><option>Suspend Access</option><option>Retain Access</option><option>Review Required</option></select></label>
+          <label>Approval<select id="loaApproval"><option>Manager + Application Owner</option><option>Manager</option><option>Application Owner</option></select></label>
+        </div>
+        <div class="notice"><b>Workflow automation:</b> The request is reviewed by the manager and appropriate application owner. Access is suspended, retained or reviewed based on the approved request. Elevated access is specifically reviewed before the employee returns.</div>
+        <div class="button-row"><button type="button" class="primary" id="submitLoeButton">Submit LOA Request →</button><button type="button" class="secondary" id="resetLoeButton">Reset LOA Demo</button></div>
+        <div id="loaResult" class="result hidden"></div>
+      </div>
+      <div id="loaTicketPanel" class="panel hidden"><div class="panel-title"><h3>Generated Workflow</h3><span class="pill blue">IN PROGRESS</span></div>
+        <div id="loaTicketSummary" class="ticket-card"></div>
+        <h4>Child Tickets Generated</h4><div id="loaChildren" class="cards three"></div>
+        <div class="callout"><b>Parent ticket control:</b> The parent remains open until required approvals, access review, validation and evidence activities are completed.</div>
+        <button type="button" class="workflow-link" id="viewLoeWorkflow">View LOA Workflow</button>
+      </div>
+    </section>
+
+    <section id="periodic" class="page">
+      <div class="page-intro"><span class="eyebrow">IAM + GRC CONTROL WORKFLOW</span><h2>Periodic Access Review</h2><p>Perform periodic sampling of Service Desk requests, review every termination, and obtain application SME validation that access was removed as required.</p></div>
+      <div class="panel">
+        <div class="panel-title"><h3>Periodic Access Review</h3><span class="pill blue">CONTROL REVIEW</span></div>
+        <div class="form-grid access-form-grid">
+          <label>Review Date<input id="parDate" type="date"></label>
+          <label>Review Period<select id="parPeriod"><option>Monthly</option><option>Quarterly</option><option>Annual</option></select></label>
+          <label>Service Desk Member<select id="parAnalyst"><option>All Service Desk Members</option><option>Jordan Lee</option><option>Alex Morgan</option><option>Taylor Brooks</option><option>Casey Patel</option></select></label>
+          <label>Review Scope<select id="parScope"><option>Service Desk Request Review</option><option>Targeted Control Review</option><option>Follow-up / Remediation Review</option></select></label>
+        </div>
+        <h4>Request Types Reviewed</h4>
+        <div class="check-grid" id="parTypes">
+          <label><input type="checkbox" value="New Hire" checked> New Hire</label>
+          <label><input type="checkbox" value="Access Modification" checked> Access Modification</label>
+          <label><input type="checkbox" value="Employee Transfer" checked> Employee Transfer</label>
+          <label><input type="checkbox" value="Leave of Absence" checked> Leave of Absence</label>
+          <label><input type="checkbox" value="Termination" checked disabled> Termination — 100% Review</label>
+        </div>
+        <div class="notice"><b>Control rule:</b> Request types are periodically sampled across Service Desk members. <b>Every termination is reviewed for completion</b>, and the applicable application SME validates that system access was removed when required. Exceptions are documented and tracked to remediation.</div>
+        <div class="button-row"><button type="button" class="primary" id="submitPeriodicButton">Run Access Review →</button><button type="button" class="secondary" id="resetPeriodicButton">Reset Review Demo</button></div>
+        <div id="parResult" class="result hidden"></div>
+      </div>
+      <div id="parTicketPanel" class="panel hidden">
+        <div class="panel-title"><h3>Periodic Access Review Ticket</h3><span class="pill blue">REVIEW RECORD</span></div>
+        <div id="parTicketHeader" class="par-review-ticket"></div>
+        <div id="parReviewDetails" class="review-detail-sections"></div>
+      </div>
+      <div id="parWorkflowPanel" class="panel hidden"><div class="panel-title"><h3>Generated Review Workflow</h3><span class="pill blue">IN PROGRESS</span></div>
+        <div id="parTicketSummary" class="ticket-card"></div>
+        <h4>Review Tasks Generated</h4><div id="parTasks" class="cards three"></div>
+        <div class="callout"><b>Control gate:</b> The review cycle remains open until sampled requests are checked, all terminations are validated, SME review is completed, and exceptions/evidence are documented.</div>
+        <button type="button" class="workflow-link" id="viewPeriodicWorkflow">View Periodic Access Review Workflow</button>
+      </div>
+    </section>
+
+    <section id="change" class="page">
+      <div class="page-intro"><span class="eyebrow">ITSM GOVERNANCE</span><h2>Change Management</h2><p>Illustrative CAB workflow from request through evidence and closure.</p></div>
+      <div class="workflow wide"><div class="flow-step current"><b>1</b><span>Request</span></div><i>→</i><div class="flow-step"><b>2</b><span>Assess</span></div><i>→</i><div class="flow-step"><b>3</b><span>CAB</span></div><i>→</i><div class="flow-step"><b>4</b><span>Implement</span></div><i>→</i><div class="flow-step"><b>5</b><span>Review</span></div></div>
+      <div class="cards three"><div class="metric"><span>Approved Changes</span><strong>42</strong><small>Upcoming CAB</small></div><div class="metric"><span>Completed</span><strong>38</strong><small>Previous week</small></div><div class="metric"><span>Emergency</span><strong>2</strong><small>Post-review required</small></div></div>
+    </section>
+
+    <section id="assets" class="page">
+      <div class="page-intro"><span class="eyebrow">IT ASSET MANAGEMENT</span><h2>Asset Lifecycle</h2><p>Control points for custody, location, reconciliation and disposition.</p></div>
+      <div class="lifecycle"><span>Acquire</span><i>→</i><span>Receive</span><i>→</i><span>Assign</span><i>→</i><span>Transfer</span><i>→</i><span>Return</span><i>→</i><span>Dispose</span></div>
+      <div class="panel"><h3>Sample custody record</h3><div class="control-line"><span>Asset</span><b>NS-LT-004821</b></div><div class="control-line"><span>Assigned to</span><b>Alex Morgan</b></div><div class="control-line"><span>Location</span><b>Branch 03</b></div><div class="control-line"><span>Last reconciliation</span><b>September 1, 2026</b></div></div>
+    </section>
+
+    <section id="governance" class="page">
+      <div class="page-intro"><span class="eyebrow">GOVERNANCE · PROCESS DOCUMENTATION</span><h2>Governance Documentation</h2><p>A controlled repository of governance process maps showing how requirements move from identification through approval, implementation and continual improvement.</p></div>
+      <div class="panel">
+        <div class="panel-title"><h3>Process Flowcharts</h3><span class="pill blue">GOVERNANCE REPOSITORY</span></div>
+        <div class="governance-table">
+          <div class="gov-row gov-header"><span>Flowchart</span><span>Preview</span><span>Description</span></div>
+          <div class="gov-row">
+            <div class="gov-name"><b>IT Governance Documentation Process</b><span class="pill gray">Governance</span></div>
+            <div class="gov-thumb"><button type="button" class="gov-thumbnail" data-governance-image="it_governance_documentation_process_v5.png" data-governance-alt="IT Governance Documentation Process"><img src="it_governance_documentation_process_v5.png" alt="Thumbnail of IT Governance Documentation Process"></button><small>Click to enlarge</small></div>
+            <div class="gov-description"><p>Defines the controlled lifecycle for creating, reviewing, approving, publishing, implementing and maintaining governance documentation.</p><div class="gov-meta"><span><b>Focus:</b> Governance Documentation</span><span><b>Controls:</b> Approval · Ownership · Evidence</span></div></div>
+          </div>
+          <div class="gov-row">
+            <div class="gov-name"><b>IT Governance Maturity Model</b><span class="pill gray">Framework</span></div>
+            <div class="gov-thumb"><button type="button" class="gov-thumbnail" data-governance-image="it_governance_maturity_model.png" data-governance-alt="IT Governance Maturity Model"><img src="it_governance_maturity_model.png" alt="Thumbnail of IT Governance Maturity Model"></button><small>Click to enlarge</small></div>
+            <div class="gov-description"><p>Defines five governance maturity levels from ad hoc and reactive practices through managed, defined, measured and optimized governance.</p><div class="gov-meta"><span><b>Focus:</b> Maturity Assessment</span><span><b>Use:</b> Assess · Plan · Improve</span></div></div>
+          </div>
+          <div class="gov-row">
+            <div class="gov-name"><b>Document Hierarchy</b><span class="pill gray">Framework</span></div>
+            <div class="gov-thumb"><button type="button" class="gov-thumbnail" data-governance-image="document_hierarchy.png" data-governance-alt="Document Hierarchy"><img src="document_hierarchy.png" alt="Thumbnail of Document Hierarchy"></button><small>Click to enlarge</small></div>
+            <div class="gov-description"><p>Shows how policies, standards, procedures, work instructions, checklists, templates and knowledge articles fit together from strategic governance to operational execution.</p><div class="gov-meta"><span><b>Focus:</b> Document Structure</span><span><b>Purpose:</b> Consistency · Clarity</span></div></div>
+          </div>
+          <div class="gov-row">
+            <div class="gov-name"><b>Document Relationship Map</b><span class="pill gray">Framework</span></div>
+            <div class="gov-thumb"><button type="button" class="gov-thumbnail" data-governance-image="document_relationship_map.png" data-governance-alt="Document Relationship Map"><img src="document_relationship_map.png" alt="Thumbnail of Document Relationship Map"></button><small>Click to enlarge</small></div>
+            <div class="gov-description"><p>Illustrates how governance documents relate from policy through standards, procedures, work instructions, checklists, templates, knowledge and training.</p><div class="gov-meta"><span><b>Focus:</b> Document Relationships</span><span><b>Outcome:</b> Consistent Execution</span></div></div>
+          </div>
+          <div class="gov-row">
+            <div class="gov-name"><b>Governance Controls Framework</b><span class="pill gray">Controls</span></div>
+            <div class="gov-thumb"><button type="button" class="gov-thumbnail" data-governance-image="governance_controls_framework.png" data-governance-alt="Governance Controls Framework"><img src="governance_controls_framework.png" alt="Thumbnail of Governance Controls Framework"></button><small>Click to enlarge</small></div>
+            <div class="gov-description"><p>Defines core documentation controls covering ownership, approval, version control, review cycles, compliance, exceptions, metrics and audit assurance.</p><div class="gov-meta"><span><b>Focus:</b> Control Framework</span><span><b>Controls:</b> Accountability · Compliance</span></div></div>
+          </div>
+          <div class="gov-row">
+            <div class="gov-name"><b>Governance RACI Matrix</b><span class="pill gray">Governance</span></div>
+            <div class="gov-thumb"><button type="button" class="gov-thumbnail" data-governance-image="governance_raci_matrix.png" data-governance-alt="Governance RACI Matrix"><img src="governance_raci_matrix.png" alt="Thumbnail of Governance RACI Matrix"></button><small>Click to enlarge</small></div>
+            <div class="gov-description"><p>Maps Responsible, Accountable, Consulted and Informed roles across governance activities to establish clear ownership and accountability.</p><div class="gov-meta"><span><b>Focus:</b> Roles & Responsibilities</span><span><b>Purpose:</b> Clear Accountability</span></div></div>
+          </div>
+          <div class="gov-row">
+            <div class="gov-name"><b>IT Governance Dashboard</b><span class="pill gray">Reporting</span></div>
+            <div class="gov-thumb"><button type="button" class="gov-thumbnail" data-governance-image="it_governance_dashboard.png" data-governance-alt="IT Governance Dashboard"><img src="it_governance_dashboard.png" alt="Thumbnail of IT Governance Dashboard"></button><small>Click to enlarge</small></div>
+            <div class="gov-description"><p>Provides management visibility into document status, review compliance, training completion, exceptions, activity, trends and governance KPIs.</p><div class="gov-meta"><span><b>Focus:</b> Metrics & Reporting</span><span><b>Use:</b> Monitor · Measure · Act</span></div></div>
+          </div>
+          <div class="gov-row">
+            <div class="gov-name"><b>IT Governance Documentation Roadmap</b><span class="pill gray">Roadmap</span></div>
+            <div class="gov-thumb"><button type="button" class="gov-thumbnail" data-governance-image="it_governance_documentation_roadmap.png" data-governance-alt="IT Governance Documentation Roadmap"><img src="it_governance_documentation_roadmap.png" alt="Thumbnail of IT Governance Documentation Roadmap"></button><small>Click to enlarge</small></div>
+            <div class="gov-description"><p>Provides a phased roadmap to assess the current state, establish governance, build standardized documentation, control the lifecycle and drive continual improvement.</p><div class="gov-meta"><span><b>Focus:</b> Program Roadmap</span><span><b>Stages:</b> Assess · Govern · Build · Control · Improve</span></div></div>
+          </div>
+          <div class="gov-row">
+            <div class="gov-name"><b>IT Governance Documentation Architecture</b><span class="pill gray">Architecture</span></div>
+            <div class="gov-thumb"><button type="button" class="gov-thumbnail" data-governance-image="it_governance_documentation_architecture.png" data-governance-alt="IT Governance Documentation Architecture"><img src="it_governance_documentation_architecture.png" alt="Thumbnail of IT Governance Documentation Architecture"></button><small>Click to enlarge</small></div>
+            <div class="gov-description"><p>Shows the architecture connecting governance documents, operational documentation, document controls, review and compliance, and reporting and KPI activities.</p><div class="gov-meta"><span><b>Focus:</b> Documentation Architecture</span><span><b>Purpose:</b> Controlled Information Flow</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="notice governance-note"><b>Portfolio note:</b> Flowcharts are illustrative examples using fictional data and demonstrate how governance processes can be documented, controlled and presented for audit or management review.</div>
+    </section>
+
+    <section id="doccontrol" class="page">
+      <div class="page-intro"><span class="eyebrow">GRC · DOCUMENT GOVERNANCE</span><h2>Document Registers</h2><p>A structured set of IT document registers used to track policies, standards, procedures and work instructions throughout their lifecycle — from draft and review through approval, active use, revision and retirement.</p></div>
+      <div class="cards four">
+        <div class="metric"><span>Document Types</span><strong>4</strong><small>Policy · Standard · Procedure · Work Instruction</small></div>
+        <div class="metric"><span>Registers</span><strong>4</strong><small>Controlled document inventories</small></div>
+        <div class="metric"><span>Lifecycle</span><strong>8</strong><small>Standardized status stages</small></div>
+        <div class="metric"><span>Audit Focus</span><strong>Traceable</strong><small>Ownership · review · approval · evidence</small></div>
+      </div>
+      <div class="cards two">
+        <div class="panel">
+          <div class="panel-title"><h3>IT Documentation Hierarchy</h3><span class="pill blue">GOVERNANCE MODEL</span></div>
+          <p>The four registers organize IT documentation by purpose and level of detail. Policies establish direction and requirements; standards define required rules or minimum expectations; procedures describe how a process is performed; and work instructions provide detailed task-level steps.</p>
+          <div class="lifecycle"><span>Policy</span><i>→</i><span>Standard</span><i>→</i><span>Procedure</span><i>→</i><span>Work Instruction</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>Why the Registers Matter</h3><span class="pill">AUDIT READY</span></div>
+          <ul class="steps">
+            <li><b>Central visibility</b> — identify what documentation exists and its current status.</li>
+            <li><b>Ownership</b> — identify document owners, authors and approvers.</li>
+            <li><b>Version control</b> — maintain revision history and the reason for changes.</li>
+            <li><b>Review management</b> — track effective and next-review dates.</li>
+            <li><b>Evidence</b> — link document changes to supporting ticket or change evidence.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-title"><h3>Document Lifecycle</h3><span class="pill blue">STANDARDIZED</span></div>
+        <div class="table-wrap"><table class="data-table"><thead><tr><th>Status</th><th>When Used</th><th>Control Intent</th></tr></thead><tbody>
+          <tr><td>Draft</td><td>Being created</td><td>Working document; not yet approved</td></tr>
+          <tr><td>In Review</td><td>Stakeholders reviewing</td><td>SME/stakeholder feedback and refinement</td></tr>
+          <tr><td>Pending Approval</td><td>Waiting for approver</td><td>Final draft awaiting formal approval</td></tr>
+          <tr><td>Active / General Use</td><td>Current approved document</td><td>Official documentation in use</td></tr>
+          <tr><td>Under Revision</td><td>Active document being updated</td><td>Controlled working copy; current version remains available</td></tr>
+          <tr><td>Superseded</td><td>Replaced by newer version</td><td>Retain for traceability</td></tr>
+          <tr><td>Retired</td><td>No longer used</td><td>Withdraw from use and retain required records</td></tr>
+          <tr><td>Archived</td><td>Historical copy retained</td><td>Preserve for historical, legal or audit purposes</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="panel">
+        <div class="panel-title"><h3>IT Policy Register</h3><span class="pill blue">GOVERNING REQUIREMENTS</span></div>
+        <p>The Policy Register provides the authoritative inventory for IT policies and shows each policy's current version and lifecycle status. Individual policy records also demonstrate effective dates, next review dates, ownership, version history, change logs, supporting ticket references and document review/approval records.</p>
+        <div class="gov-meta"><span><b>Examples:</b> Incident Management · Change Management · Access Management · Asset Management</span><span><b>Control focus:</b> Ownership · Approval · Version History</span></div>
+        <a class="primary" href="IT Policy Register.xlsx" download>Open IT Policy Register ↓</a>
+      </div>
+      <div class="panel">
+        <div class="panel-title"><h3>IT Standards Register</h3><span class="pill blue">TECHNICAL REQUIREMENTS</span></div>
+        <p>The Standards Register organizes the technical and operational standards that support IT policies. It provides the same controlled-document approach for versioning, status, ownership, review and approval while keeping standards distinct from higher-level policy requirements.</p>
+        <div class="gov-meta"><span><b>Examples:</b> Incident Management · Change Management · Access Management · Asset Management</span><span><b>Control focus:</b> Consistency · Minimum Requirements · Review</span></div>
+        <a class="primary" href="IT Standards Register.xlsx" download>Open IT Standards Register ↓</a>
+      </div>
+      <div class="panel">
+        <div class="panel-title"><h3>IT Procedure Register</h3><span class="pill blue">PROCESS EXECUTION</span></div>
+        <p>The Procedure Register tracks the controlled procedures used to execute IT processes. It provides visibility into current and retired procedures and supports traceability through version history, document ownership, review and approval information.</p>
+        <div class="gov-meta"><span><b>Examples:</b> Incident Management · Change Management · Access Management · Asset Management</span><span><b>Control focus:</b> Process Consistency · Traceability · Lifecycle</span></div>
+        <a class="primary" href="IT Procedure Register.xlsx" download>Open IT Procedure Register ↓</a>
+      </div>
+      <div class="panel">
+        <div class="panel-title"><h3>IT Work Instruction Register</h3><span class="pill blue">TASK-LEVEL EXECUTION</span></div>
+        <p>The Work Instruction Register tracks detailed task-level instructions used by IT staff. The examples include operational instructions for logging tickets and managing application accounts, with version history and supporting change references demonstrating controlled maintenance.</p>
+        <div class="gov-meta"><span><b>Examples:</b> Logging Incident/Change Tickets · Adding/Removing Accounts</span><span><b>Control focus:</b> Repeatability · Evidence · Controlled Change</span></div>
+        <a class="primary" href="IT Work Instruction Register.xlsx" download>Open IT Work Instruction Register ↓</a>
+      </div>
+      <div class="notice governance-note"><b>Portfolio note:</b> These registers are illustrative NorthStar Community Credit Union examples using simulated data. Together they demonstrate how an IT documentation hierarchy can be inventoried, owned, reviewed, approved, versioned and maintained as audit-ready governance records.</div>
+    </section>
+
+    <section id="itgc" class="page">
+      <div class="page-intro"><span class="eyebrow">GRC · IT GENERAL CONTROLS</span><h2>ITGC Audit &amp; Controls</h2><p>A structured audit console demonstrating how operational processes become defined controls, retained evidence, testable populations, exceptions and remediation.</p></div>
+
+      <div id="itgc-overview" class="panel itgc-hero-panel">
+        <div class="panel-title"><h3>IT General Controls Audit Model</h3><span class="pill blue">AUDIT FRAMEWORK</span></div>
+        <p>NorthStar connects the operational workflows already demonstrated throughout the portfolio to an audit-testing layer. Each control can be evaluated from its objective through evidence, testing, exception handling and remediation.</p>
+        <div class="itgc-lifecycle">
+          <div><span>01</span><b>Business Process</b><small>Operational activity</small></div><i>→</i>
+          <div><span>02</span><b>Control</b><small>Objective &amp; requirement</small></div><i>→</i>
+          <div><span>03</span><b>Evidence</b><small>Records &amp; artifacts</small></div><i>→</i>
+          <div><span>04</span><b>Testing</b><small>Sample &amp; procedure</small></div><i>→</i>
+          <div><span>05</span><b>Exception</b><small>Finding &amp; impact</small></div><i>→</i>
+          <div><span>06</span><b>Remediation</b><small>Action &amp; follow-up</small></div>
+        </div>
+      </div>
+
+      <div class="panel itgc-scope-panel" id="itgc-demonstration-scope">
+        <div class="panel-title"><h3>Demonstration Scope</h3><span class="pill blue">DOMAIN 1</span></div>
+        <p>This section focuses on <b>New Hire Provisioning</b> and <b>Termination / Access Removal</b>, two key controls within the user access lifecycle and common areas of ITGC audit testing.</p>
+        <p>Other user access processes, including <b>Access Modification, Employee Transfer, Leave of Absence, Privileged Access, and Periodic Access Review</b>, would follow similar controlled paths incorporating authorization, role-based access requirements, fulfillment, verification, evidence retention, and audit testing. These processes are not included in this demonstration to keep the scope focused on the primary Joiner and Leaver controls.</p>
+      </div>
+
+      <div class="section-head" id="itgc-domains"><div><h3>ITGC Control Domains</h3><p>Six audit domains provide the roadmap. Domain 1 is now developed as the first interactive control-testing demonstration.</p></div><span class="pill blue">DOMAIN 1 ACTIVE</span></div>
+      <div class="cards two itgc-domain-grid">
+        <div class="panel itgc-domain-card active-domain" id="itgc-domain1"><div class="panel-title"><h3>1. User Access Management</h3><span class="pill green">IN DEVELOPMENT</span></div><ul><li>New user provisioning</li><li>Access changes and transfers</li><li>Terminations and timely removal</li><li>Privileged access</li><li>Periodic access reviews</li><li>Approval and evidence retention</li></ul><div class="itgc-focus"><b>Audit focus</b><span>Authorized access · least privilege · timely deprovisioning · evidence</span></div></div>
+        <div class="panel itgc-domain-card" id="itgc-domain2"><div class="panel-title"><h3>2. Change Management</h3><span class="pill">ITSM</span></div><ul><li>Change request and classification</li><li>Risk / impact assessment</li><li>Testing evidence</li><li>Approvals and CAB review</li><li>Implementation and closure</li><li>Emergency changes and post-implementation review</li></ul><div class="itgc-focus"><b>Audit focus</b><span>Authorization · testing · segregation of duties · traceability</span></div></div>
+        <div class="panel itgc-domain-card" id="itgc-domain3"><div class="panel-title"><h3>3. IT Operations</h3><span class="pill">OPERATIONS</span></div><ul><li>Scheduled jobs and batch processing</li><li>Backup monitoring</li><li>Incident and problem management</li><li>System monitoring</li><li>Operational exceptions</li></ul><div class="itgc-focus"><b>Audit focus</b><span>Completeness · monitoring · exception handling · operational evidence</span></div></div>
+        <div class="panel itgc-domain-card" id="itgc-domain4"><div class="panel-title"><h3>4. Computer Operations / Infrastructure</h3><span class="pill">TECHNOLOGY</span></div><ul><li>Server and infrastructure access</li><li>Administrative accounts</li><li>Infrastructure changes</li><li>Patch management</li><li>Backup / restore controls</li><li>Configuration management</li></ul><div class="itgc-focus"><b>Audit focus</b><span>Restricted access · configuration integrity · preventive and detective controls</span></div></div>
+        <div class="panel itgc-domain-card" id="itgc-domain5"><div class="panel-title"><h3>5. Asset Management</h3><span class="pill">ASSET</span></div><ul><li>Asset inventory and ownership</li><li>Assignment and lifecycle</li><li>Reconciliation</li><li>Transfers and reuse</li><li>Disposal and evidence</li><li>Exception management</li></ul><div class="itgc-focus"><b>Audit focus</b><span>Completeness · accuracy · ownership · lifecycle traceability</span></div></div>
+        <div class="panel itgc-domain-card" id="itgc-domain6"><div class="panel-title"><h3>6. IT Policies &amp; Procedures</h3><span class="pill">GOVERNANCE</span></div><ul><li>Policy and procedure inventory</li><li>Ownership and approval</li><li>Version control</li><li>Effective and review dates</li><li>Evidence of periodic review</li><li>Exceptions and controlled retirement</li></ul><div class="itgc-focus"><b>Audit focus</b><span>Governance · currency · accountability · controlled documentation</span></div></div>
+      </div>
+
+      <div id="itgc-domain1-content" class="itgc-domain-content">
+      <div class="section-head" id="itgc-domain1-detail"><div><h3>Domain 1 · User Access Management</h3><p>The first control demonstrates New User Provisioning from request intake through role-based access, automated account creation, Service Desk verification and audit testing.</p></div><span class="pill green">IAM-01</span></div>
+
+      <div class="panel itgc-control-header">
+        <div class="panel-title"><h3>IAM-01 — New User Access Provisioning</h3><span class="pill blue">PER EVENT</span></div>
+        <div class="itgc-control-record itgc-control-record-wide">
+          <div><span>Control Objective</span><b>Ensure new-user access is provisioned according to the employee's authorized role and business requirements, with required approvals and verification.</b></div>
+          <div><span>Control Owner</span><b>IT Service Desk / IT Operations</b></div>
+          <div><span>Control Frequency</span><b>Per new-hire event</b></div>
+          <div><span>Control Type</span><b>Preventive + Detective</b></div>
+          <div><span>Primary Evidence</span><b>Parent ticket, child tickets, User Access Matrix, approvals and verification records</b></div>
+          <div><span>Key Principle</span><b>Role-based access · least privilege · segregation of responsibilities</b></div>
+        </div>
+        <div class="callout"><b>NorthStar target-state design:</b> the User Access Matrix incorporates the approved role baseline, including the AD organizational unit and approved security/email distribution groups. This represents the controlled design we are demonstrating; the historical environment used a separate master group list that was being considered for incorporation.</div>
+      </div>
+
+      <div class="cards two">
+        <div class="panel">
+          <div class="panel-title"><h3>1. New Hire Request Intake</h3><span class="pill">TWO PATHS</span></div>
+          <div class="itgc-path-card"><div class="itgc-path"><span class="itgc-path-number">A</span><div><b>Self-Service Portal</b><p>Department administrative assistant or hiring manager completes and submits the New Hire template.</p></div></div><div class="itgc-path"><span class="itgc-path-number">B</span><div><b>HRIS Notification</b><p>HRIS sends an email to the Service Desk; an analyst manually creates the New Hire ticket.</p></div></div></div>
+          <div class="itgc-control-note"><b>Control point</b><span>Both intake paths enter the same controlled New Hire workflow and create an auditable ticket record.</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>2. Access Determination</h3><span class="pill blue">ROLE BASELINE</span></div>
+          <div class="itgc-mapping"><div><span>Department</span><b>Finance</b></div><div><span>Job Title</span><b>Financial Analyst</b></div><div><span>AD OU</span><b>OU=Finance,OU=Users</b></div><div><span>Security Groups</span><b>Finance-Standard · Finance-Shared</b></div><div><span>Email Distribution</span><b>Finance-All</b></div><div><span>Applications</span><b>Financial System · Reporting</b></div></div>
+          <div class="itgc-control-note"><b>Control point</b><span>The User Access Matrix establishes the approved role baseline; individual application approvals are not required when access is prescribed by the matrix.</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><h3>3. Child Ticket &amp; Fulfillment Model</h3><span class="pill blue">EVIDENCE CHAIN</span></div>
+        <p class="panel-help">Submitting the demonstration creates a parent New Hire request and the child tasks needed to complete and verify access. Hardware follows a separate approval path.</p>
+        <div class="itgc-child-grid">
+          <div class="itgc-child-card"><span class="num">01</span><h4>Windows / AD / Shared Resources</h4><p>Okta creates the Windows account and group memberships. Service Desk verifies the account is in the correct OU and that security/email distribution groups match the approved role baseline.</p><span class="pill blue">IDENTITY / VERIFICATION</span></div>
+          <div class="itgc-child-card"><span class="num">02</span><h4>Microsoft 365 / Email</h4><p>Provisioned by a separate IT group. Service Desk's initial scope does not include creating the M365 account; responsibility can expand as the operating model matures.</p><span class="pill">DEPENDENT FULFILLMENT</span></div>
+          <div class="itgc-child-card"><span class="num">03</span><h4>VPN / Remote Access</h4><p>Created when remote access is required. The child ticket documents the requirement, fulfillment and verification evidence.</p><span class="pill blue">REMOTE ACCESS</span></div>
+          <div class="itgc-child-card"><span class="num">04</span><h4>Application / System Access</h4><p>User Access Matrix ticket. Service Desk completes required application/system access according to the employee's department and role.</p><span class="pill blue">ACCESS MATRIX</span></div>
+          <div class="itgc-child-card"><span class="num">05</span><h4>Hardware &amp; Equipment</h4><p>Laptop, mobile device, desktop computer and desktop phone child tickets may include monitors, docking station and headset as applicable.</p><span class="pill">APPROVAL REQUIRED</span></div>
+        </div>
+        <div class="itgc-approval-strip"><div><b>Technical Manager Approval</b><span>Laptop · Mobile Device · Desktop Computer · Desktop Phone</span></div><div><b>Role-Based Access</b><span>User Access Matrix determines prescribed access</span></div><div><b>Segregated Fulfillment</b><span>Okta / Service Desk / M365 and other IT groups</span></div></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><h3>4. Service Desk Verification — IAM-01A</h3><span class="pill green">DETECTIVE CONTROL</span></div>
+        <p class="panel-help">The Service Desk does not simply trust automated provisioning. The analyst verifies the resulting AD configuration against the approved role baseline.</p>
+        <div class="verification-grid">
+          <div class="verification-item"><span class="check-demo">✓</span><div><b>AD account exists</b><small>Confirm the Windows/AD account was created.</small></div></div>
+          <div class="verification-item"><span class="check-demo">✓</span><div><b>Correct OU</b><small>Confirm the account is in the proper organizational unit.</small></div></div>
+          <div class="verification-item"><span class="check-demo">✓</span><div><b>Security groups</b><small>Compare assigned groups to the approved role baseline.</small></div></div>
+          <div class="verification-item"><span class="check-demo">✓</span><div><b>Email distribution groups</b><small>Confirm distribution memberships match the approved role.</small></div></div>
+        </div>
+        <div class="callout"><b>Evidence retained:</b> the Service Desk records the verification in the child ticket. The complete evidence package is the parent ticket plus all relevant child tickets and their completion history.</div>
+      </div>
+
+      <div class="panel itgc-test-panel">
+        <div class="panel-title"><h3>5. Audit Test — New User Provisioning</h3><span class="pill blue">INTERACTIVE TEST</span></div>
+        <div class="itgc-test-meta"><div><span>Audit Population</span><b>47 new hires</b></div><div><span>Illustrative Sample</span><b>10</b></div><div><span>Testing Period</span><b>Q3 2026</b></div><div><span>Test Type</span><b>Sample-based</b></div></div>
+        <div class="itgc-test-procedure"><h4>Test Procedure</h4><ol><li>Confirm a valid New Hire request exists.</li><li>Confirm department and job title were identified.</li><li>Compare required access to the User Access Matrix.</li><li>Verify required hardware approvals, where applicable.</li><li>Verify AD account creation and correct OU placement.</li><li>Compare security and email distribution groups to the approved role baseline.</li><li>Verify applicable VPN and application/system access child tickets.</li><li>Confirm required evidence is retained in the ticket chain.</li></ol></div>
+        <div class="itgc-sample-controls"><label for="iamSample">Select sample record</label><select id="iamSample"><option value="pass">Sample 01 — Alex Morgan / Finance Analyst</option><option value="exception">Sample 07 — Jordan Lee / Finance Analyst (simulated exception)</option><option value="pass2">Sample 09 — Taylor Brown / Branch Operations</option></select><button class="primary" id="iamRunTest">Run Control Test →</button></div>
+        <div id="iamTestResult" class="result hidden"></div>
+      </div>
+
+      <div class="cards two">
+        <div class="panel">
+          <div class="panel-title"><h3>6. Evidence Package</h3><span class="pill blue">AUDIT TRAIL</span></div>
+          <div id="iamEvidencePackage" class="evidence-checklist">
+            <div><span>✓</span><b>New Hire parent ticket</b><small>Request source, employee details and required access.</small></div>
+            <div><span>✓</span><b>User Access Matrix reference</b><small>Role baseline for applications, systems and group memberships.</small></div>
+            <div><span>✓</span><b>Hardware approval evidence</b><small>Technical Manager approval where equipment is requested.</small></div>
+            <div><span>✓</span><b>AD verification child ticket</b><small>OU and group membership verification.</small></div>
+            <div><span>✓</span><b>VPN / Application child tickets</b><small>Fulfillment and verification where required.</small></div>
+            <div><span>✓</span><b>Ticket completion history</b><small>Evidence of work performed and closure.</small></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>7. Exception &amp; Remediation</h3><span class="pill red">SIMULATED</span></div>
+          <div id="iamExceptionBox" class="exception-box"><span class="exception-status">EXCEPTION SCENARIO</span><h4>Sample 07 — Group membership mismatch</h4><p>Expected: <b>Finance-Standard</b><br>Actual: <b>Finance-Admin</b></p><div class="exception-flow"><span>Exception</span><i>→</i><span>Finding</span><i>→</i><span>Remediation</span><i>→</i><span>Closure</span></div><div class="itgc-control-note"><b>Illustrative remediation</b><span>Remove unauthorized group membership, document corrective action, retain evidence of the change and retest the sample before closure.</span></div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><h3>ITGC Control Mapping</h3><span class="pill">REFERENCE</span></div>
+        <div class="framework-grid">
+          <div><b>COBIT 2019</b><span>Access controls, managed identity and access, and governance of technology activities.</span></div>
+          <div><b>ISO/IEC 27001</b><span>Access control and identity lifecycle concepts supporting authorized, least-privilege access.</span></div>
+          <div><b>ITGC Practice</b><span>Joiner provisioning, role-based access, verification, evidence retention and exception handling.</span></div>
+        </div>
+        <p class="framework-note">Framework references are presented as portfolio guidance, not as a claim that a single framework prescribes this exact workflow. Control design should be mapped to the organization's adopted framework, policies and audit requirements.</p>
+      </div>
+
+      <div class="section-head itgc-control-section" id="itgc-iam02"><div><h3>Domain 1 · User Access Management — Termination</h3><p>The second control demonstrates termination notification, timely access removal, asset recovery, verification and audit testing.</p></div><span class="pill green">IAM-02</span></div>
+
+      <div class="panel itgc-control-header">
+        <div class="panel-title"><h3>IAM-02 — Terminated User Access Removal</h3><span class="pill blue">PER EVENT</span></div>
+        <div class="itgc-control-record itgc-control-record-wide">
+          <div><span>Control Objective</span><b>Ensure terminated-user access is disabled and removed within the required timeframe to prevent continued unauthorized access.</b></div>
+          <div><span>Control Owner</span><b>IT Service Desk / IT Operations</b></div>
+          <div><span>Control Frequency</span><b>Per termination event</b></div>
+          <div><span>Control Type</span><b>Preventive + Detective</b></div>
+          <div><span>Primary Evidence</span><b>Termination ticket, child tickets, User Access Matrix, access-removal verification and completion timestamps</b></div>
+          <div><span>Key Principle</span><b>Timely deprovisioning · least privilege · evidence · segregation of responsibilities</b></div>
+        </div>
+        <div class="callout"><b>Timing control:</b> For an immediate termination, access is disabled immediately. For a scheduled termination, required access removal is completed by <b>11:00 PM on the completion date provided</b>. The NorthStar demo uses this timing requirement as an audit-test criterion.</div>
+      </div>
+
+      <div class="cards two">
+        <div class="panel">
+          <div class="panel-title"><h3>1. Termination Notification</h3><span class="pill">TWO PATHS</span></div>
+          <div class="itgc-path-card"><div class="itgc-path"><span class="itgc-path-number">A</span><div><b>Self-Service Portal</b><p>HR, a department administrative assistant or the employee's manager submits the Termination template. Immediate manager-level terminations were primarily submitted by HR; resignations and lower-level terminations were commonly submitted by the manager or administrative assistant.</p></div></div><div class="itgc-path"><span class="itgc-path-number">B</span><div><b>HRIS Notification</b><p>HRIS sends an email to the Service Desk; an analyst manually creates the Termination ticket.</p></div></div></div>
+          <div class="itgc-control-note"><b>Control point</b><span>Both notification paths enter the same controlled termination workflow and create an auditable ticket record.</span></div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>2. Access Removal Determination</h3><span class="pill blue">ROLE BASELINE</span></div>
+          <div class="itgc-mapping"><div><span>Employee Role</span><b>Referenced from termination record</b></div><div><span>Access Baseline</span><b>User Access Matrix</b></div><div><span>Windows / AD</span><b>Disable + remove group memberships</b></div><div><span>M365 / Email</span><b>Removal by separate IT group</b></div><div><span>VPN / Remote Access</span><b>Revoke when applicable</b></div><div><span>Applications</span><b>Remove according to role baseline</b></div></div>
+          <div class="itgc-control-note"><b>Control point</b><span>The User Access Matrix is used to identify logical access that must be removed. The Service Desk performs the applicable systems/application work and verification.</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><h3>3. Child Ticket &amp; Fulfillment Model</h3><span class="pill blue">EVIDENCE CHAIN</span></div>
+        <p class="panel-help">Termination work is separated into access-removal and asset-recovery tasks. The parent request remains open until required child tickets, evidence and validation are complete.</p>
+        <div class="itgc-child-grid">
+          <div class="itgc-child-card"><span class="num">01</span><h4>Windows / AD / M365 / Shared Resources</h4><p>Okta removes the Windows account and group memberships. Service Desk verifies the AD account is disabled, moved to the Terminated folder, removed from the proper active OU and that security/email distribution groups were removed. M365 removal is performed by another IT group.</p><span class="pill blue">IDENTITY / VERIFICATION</span></div>
+          <div class="itgc-child-card"><span class="num">02</span><h4>VPN / Remote Access Removal</h4><p>Created when applicable. The child ticket documents removal of remote access and supporting verification evidence.</p><span class="pill blue">REMOTE ACCESS</span></div>
+          <div class="itgc-child-card"><span class="num">03</span><h4>Application / System Access Removal</h4><p>User Access Matrix ticket. Service Desk removes required application/system access according to the employee's role and records completion evidence.</p><span class="pill blue">ACCESS MATRIX</span></div>
+          <div class="itgc-child-card"><span class="num">04</span><h4>Laptop / Computer Recovery</h4><p>Recover laptop or desktop computer and associated monitors/docking equipment for reimaging and reuse when applicable.</p><span class="pill">ASSET RECOVERY</span></div>
+          <div class="itgc-child-card"><span class="num">05</span><h4>Mobile Device Recovery</h4><p>Recover assigned mobile device for controlled return and reuse when applicable.</p><span class="pill">ASSET RECOVERY</span></div>
+          <div class="itgc-child-card"><span class="num">06</span><h4>Desktop Phone</h4><p>Desktop phones are excluded from the return/reimage requirement in the demonstrated historical process.</p><span class="pill">PROCESS RULE</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><h3>4. Service Desk Verification — IAM-02A</h3><span class="pill green">DETECTIVE CONTROL</span></div>
+        <p class="panel-help">The Service Desk verifies the automated identity-removal results and confirms that access was removed according to the termination procedure.</p>
+        <div class="verification-grid">
+          <div class="verification-item"><span class="check-demo">✓</span><div><b>AD account disabled</b><small>Confirm the Windows/AD account is disabled.</small></div></div>
+          <div class="verification-item"><span class="check-demo">✓</span><div><b>Terminated location</b><small>Confirm the account was removed from the active OU and moved to the Terminated folder.</small></div></div>
+          <div class="verification-item"><span class="check-demo">✓</span><div><b>Security groups removed</b><small>Confirm security group memberships were removed.</small></div></div>
+          <div class="verification-item"><span class="check-demo">✓</span><div><b>Email distribution groups removed</b><small>Confirm distribution group memberships were removed.</small></div></div>
+        </div>
+        <div class="callout"><b>Segregated fulfillment:</b> Okta performs the Windows/AD removal. M365 removal is performed by a separate IT group. The Service Desk's control responsibility is to verify the required results and retain evidence in the ticket chain.</div>
+      </div>
+
+      <div class="panel itgc-test-panel">
+        <div class="panel-title"><h3>5. Audit Test — Terminated User Access Removal</h3><span class="pill blue">INTERACTIVE TEST</span></div>
+        <div class="itgc-test-meta"><div><span>Audit Population</span><b>62 terminations</b></div><div><span>Illustrative Sample</span><b>10</b></div><div><span>Testing Period</span><b>Q3 2026</b></div><div><span>Test Type</span><b>Sample-based + timeliness</b></div></div>
+        <div class="itgc-test-procedure"><h4>Test Procedure</h4><ol><li>Confirm a valid Termination request exists.</li><li>Confirm the termination type and effective date/time.</li><li>Determine whether the termination is immediate or scheduled.</li><li>Compare required removal deadline to actual access-removal timestamps.</li><li>Verify AD account disablement and movement to the Terminated folder.</li><li>Verify security and email distribution group removal.</li><li>Verify M365, VPN and application/system access removal where applicable.</li><li>Confirm required asset-recovery evidence is retained.</li><li>Confirm the complete ticket evidence chain supports the control conclusion.</li></ol></div>
+        <div class="itgc-sample-controls"><label for="iam02Sample">Select sample record</label><select id="iam02Sample"><option value="pass">Sample 01 — Alex Morgan / Scheduled Termination</option><option value="immediate">Sample 04 — Jordan Lee / Immediate Termination</option><option value="exception">Sample 07 — Taylor Brown / Application removal late (simulated exception)</option></select><button class="primary" id="iam02RunTest">Run Control Test →</button></div>
+        <div id="iam02TestResult" class="result hidden"></div>
+      </div>
+
+      <div class="cards two">
+        <div class="panel">
+          <div class="panel-title"><h3>6. Evidence Package</h3><span class="pill blue">AUDIT TRAIL</span></div>
+          <div class="evidence-checklist">
+            <div><span>✓</span><b>Termination parent ticket</b><small>Request source, employee details, termination type and effective date/time.</small></div>
+            <div><span>✓</span><b>User Access Matrix reference</b><small>Role baseline used to identify logical access requiring removal.</small></div>
+            <div><span>✓</span><b>AD removal verification</b><small>Disabled status, OU/Terminated folder and group membership verification.</small></div>
+            <div><span>✓</span><b>M365 / VPN / Application child tickets</b><small>Removal evidence where applicable, including segregated fulfillment.</small></div>
+            <div><span>✓</span><b>Asset recovery tickets</b><small>Returned equipment and associated completion history.</small></div>
+            <div><span>✓</span><b>Ticket completion timestamps</b><small>Evidence used to perform the timeliness test.</small></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-title"><h3>7. Exception &amp; Remediation</h3><span class="pill red">SIMULATED</span></div>
+          <div class="exception-box"><span class="exception-status">EXCEPTION SCENARIO</span><h4>Sample 07 — Application access removed after deadline</h4><p><b>Required:</b> Access removed by 11:00 PM on the completion date.<br><b>Actual:</b> Application access removed the following morning.</p><div class="exception-flow"><span>Exception</span><i>→</i><span>Finding</span><i>→</i><span>Remediation</span><i>→</i><span>Retest</span></div><div class="itgc-control-note"><b>Illustrative remediation</b><span>Remove the remaining access, document the cause and corrective action, retain evidence of removal, assess whether other terminations were affected and retest before closure.</span></div></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-title"><h3>ITGC Control Mapping — IAM-02</h3><span class="pill">REFERENCE</span></div>
+        <div class="framework-grid">
+          <div><b>COBIT 2019</b><span>Identity and access management concepts supporting appropriate and timely access removal.</span></div>
+          <div><b>ISO/IEC 27001</b><span>Access control and identity lifecycle concepts supporting removal of access when no longer authorized.</span></div>
+          <div><b>ITGC Practice</b><span>Termination notification, timely deprovisioning, verification, evidence retention and exception remediation.</span></div>
+        </div>
+        <p class="framework-note">Framework references are presented as portfolio guidance, not as a claim that a single framework prescribes this exact workflow.</p>
+      </div>
+
+      </div>
+
+      <div class="notice governance-note"><b>Portfolio direction:</b> IAM-01 is the first detailed ITGC control. The same pattern will be reused for Termination, Access Modification, Employee Transfer, Privileged Access and Periodic Access Review before moving to the remaining ITGC domains.</div>
+    </section>
+
+    <section id="vendor" class="page">
+      <div class="page-intro"><span class="eyebrow">GOVERNANCE · THIRD-PARTY RISK</span><h2>Vendor Risk Management</h2><p>A structured third-party lifecycle demonstrating how vendor relationships are assessed, controlled, monitored and ultimately offboarded.</p></div>
+
+      <div class="panel">
+        <div class="panel-title"><h3>Vendor Risk Management Structure</h3><span class="pill blue">V44 CONTROL MODEL</span></div>
+        <p>The vendor capability is organized as a parent third-party risk lifecycle with a focused operational drill-down for remote access. Operational evidence flows back into ongoing monitoring and periodic review.</p>
+        <div class="vendor-hierarchy">
+          <div class="vendor-hierarchy-parent"><span class="hierarchy-kicker">PARENT CAPABILITY</span><h4>Vendor Risk Management</h4><p>Controlled lifecycle for third-party relationships, risk, due diligence, access and ongoing oversight.</p></div>
+          <div class="vendor-hierarchy-line"></div>
+          <div class="vendor-hierarchy-grid">
+            <div class="vendor-hierarchy-card"><b>Vendor Register</b><span>Vendor owner · service · criticality · lifecycle status</span></div>
+            <div class="vendor-hierarchy-card"><b>Risk Assessment</b><span>Risk classification · inherent/residual risk · treatment</span></div>
+            <div class="vendor-hierarchy-card"><b>Due Diligence</b><span>Security · privacy · compliance · continuity evidence</span></div>
+            <div class="vendor-hierarchy-card featured"><b>Vendor Connection &amp; Access</b><span>Named access · least privilege · MFA · connection evidence</span><em>Drill down → Operations Console</em></div>
+          </div>
+          <div class="vendor-hierarchy-drill"><span>OPERATIONAL DRILL-DOWN</span><strong>Vendor Operations Console</strong><small>Live queue → request → validation → active connection → closure/evidence → history &amp; audit search</small></div>
+          <div class="vendor-hierarchy-footer"><div><b>Ongoing Monitoring &amp; Review</b><span>Consumes console evidence, recertification results, exceptions and risk changes.</span></div><div><b>Vendor Offboarding</b><span>Removes access, closes obligations and retains required evidence.</span></div></div>
+        </div>
+      </div>
+
+      <div class="section-head"><div><h3>Phase 2 — New Vendor Setup &amp; Remote Access Provisioning</h3><p>Controlled onboarding of a vendor into Active Directory and Cisco Secure Client.</p></div><span class="pill blue">IAM · LEAST PRIVILEGE</span></div>
+      <div class="workflow wide vendor-setup-flow"><div class="flow-step current"><b>1</b><span>Vendor Details</span></div><i>→</i><div class="flow-step"><b>2</b><span>Validate Staff</span></div><i>→</i><div class="flow-step"><b>3</b><span>Configure AD</span></div><i>→</i><div class="flow-step"><b>4</b><span>Configure Cisco</span></div><i>→</i><div class="flow-step"><b>5</b><span>Notify SME / Management</span></div><i>→</i><div class="flow-step"><b>6</b><span>Evidence</span></div></div>
+
+      <div class="panel vendor-setup-panel">
+        <div class="panel-title"><h3>New Vendor Setup — Interactive Demonstration</h3><span class="pill green">NO APPROVAL GATE</span></div>
+        <div class="callout"><b>Control objective:</b> Establish individually named vendor identities with access limited to approved systems and servers. MFA, session monitoring, monthly recertification and timely offboarding provide additional control layers.</div>
+        <div class="vendor-form-grid">
+          <div class="vendor-form-field full"><label>Vendor Name <span class="required">Required</span></label><input id="vSetupName" type="text" placeholder="Enter vendor name"></div>
+          <div class="vendor-form-field full"><label>Vendor Approved Staff <span class="required">Required</span></label><textarea id="vSetupStaff" rows="4" placeholder="Enter one approved vendor employee per line"></textarea><span class="field-help">Only personnel on the approved vendor list are eligible for named accounts.</span></div>
+          <div class="vendor-form-field"><label>Technology System Owner <span class="required">Required</span></label><select id="vSetupOwner"><option value="">Select system owner</option><option>Alex Chen — Core Banking</option><option>Jordan Lee — Network Services</option><option>Taylor Smith — Infrastructure</option><option>Morgan Davis — Applications</option><option>Casey Brown — Security</option><option>Riley Wilson — Data Services</option></select></div>
+          <div class="vendor-form-field"><label>Technology SME / Notification Recipient <span class="required">Required</span></label><select id="vSetupSme"><option value="">Select Technology SME</option><option>Alex Chen</option><option>Jordan Lee</option><option>Taylor Smith</option><option>Morgan Davis</option><option>Casey Brown</option><option>Riley Wilson</option><option>Jamie Carter</option><option>Sam Patel</option><option>Chris Nguyen</option><option>Robin Clark</option><option>Devon Martin</option><option>Kelly Adams</option><option>Drew Thompson</option><option>Pat Morgan</option><option>Shawn Lewis</option><option>Leslie Walker</option><option>Quinn Hall</option><option>Avery Young</option><option>Reese King</option><option>Cameron Scott</option></select></div>
+          <div class="vendor-form-field full"><label>System / Application Name(s) <span class="required">Select at least one</span></label><div class="check-grid" id="vSetupSystems">
+            <label><input type="checkbox" value="Core Banking"> Core Banking</label><label><input type="checkbox" value="ATM Monitoring"> ATM Monitoring</label><label><input type="checkbox" value="CRM"> CRM</label><label><input type="checkbox" value="File Services"> File Services</label><label><input type="checkbox" value="Service Management"> Service Management</label><label><input type="checkbox" value="Network Monitoring"> Network Monitoring</label><label><input type="checkbox" value="Payment Processing"> Payment Processing</label><label><input type="checkbox" value="Branch Systems"> Branch Systems</label>
+          </div></div>
+          <div class="vendor-form-field full"><label>Authorized Server / Access Scope <span class="required">Least privilege</span></label><div class="check-grid" id="vSetupServers">
+            <label><input type="checkbox" value="NS-CB-APP01"> NS-CB-APP01</label><label><input type="checkbox" value="NS-CB-DB01"> NS-CB-DB01</label><label><input type="checkbox" value="NS-ATM-MGMT01"> NS-ATM-MGMT01</label><label><input type="checkbox" value="NS-CRM-APP01"> NS-CRM-APP01</label><label><input type="checkbox" value="NS-FS01"> NS-FS01</label><label><input type="checkbox" value="NS-NMS01"> NS-NMS01</label><label><input type="checkbox" value="NS-PAY-APP01"> NS-PAY-APP01</label><label><input type="checkbox" value="NS-BR-APP01"> NS-BR-APP01</label>
+          </div><span class="field-help">Cisco Secure Client is configured so the vendor can reach only the approved servers. Active Directory access is restricted to systems/applications the vendor supports.</span></div>
+          <div class="vendor-control-strip full"><div><b>Named Accounts</b><span>AD accounts use <strong>Ven-</strong> + first initial/last name. Generic vendor profiles are prohibited.</span></div><div><b>MFA</b><span>Cisco Secure Client sends a verification code to the approved vendor email address.</span></div><div><b>Session Monitoring</b><span>Server sessions are recorded and forwarded to the SIEM when recording stops.</span></div></div>
+          <div class="vendor-form-field full"><label>Technology SME / Management Notification</label><div class="notification-box"><span class="pill blue">NOTIFICATION ONLY</span><span>Service Desk Tool emails the selected Technology SME and Technology management. No approval is required.</span></div></div>
+        </div>
+        <div class="button-row"><button class="primary" id="vSetupSubmit">Create Vendor Access Profile</button><button class="secondary vendor-secondary" id="vSetupReset">Reset</button></div>
+        <div id="vSetupResult" class="result hidden"></div>
+      </div>
+
+      <div id="vSetupTicket" class="panel hidden vendor-ticket-panel">
+        <div class="panel-title"><h3>Generated Vendor Access Record</h3><span class="pill blue">AUDIT EVIDENCE</span></div>
+        <div id="vSetupSummary"></div>
+        <div class="section-head compact"><div><h4>Provisioned Named Accounts</h4><p>Accounts generated from the approved vendor staff list.</p></div></div>
+        <div id="vSetupAccounts" class="vendor-account-grid"></div>
+        <div class="section-head compact"><div><h4>Control Status</h4></div></div>
+        <div class="control-status-grid"><div><span>Active Directory</span><b class="pill green">Configured</b></div><div><span>Cisco Secure Client</span><b class="pill green">Least privilege</b></div><div><span>MFA</span><b class="pill green">Enabled</b></div><div><span>SME / Management</span><b class="pill blue">Notified</b></div><div><span>Session Recording / SIEM</span><b class="pill green">Enabled</b></div><div><span>Monthly Recertification</span><b class="pill blue">Required</b></div></div>
+        <div class="callout vendor-monthly"><b>Monthly access recertification:</b> Vendor submits the current list of approved staff each month. Technology Services Manager reconciles the list to Active Directory and reviews system scope. New vendor employees require a separate submission and Technology Services Manager approval before an account is created.</div>
+        <div class="callout"><b>Offboarding control:</b> Personnel no longer present on the vendor's approved list are removed from Active Directory and their remote-access entitlement is removed. The reconciliation/removal activity is retained as evidence.</div>
+      </div>
+
+      <div class="section-head"><div><h3>Phase 3 — Vendor Connection / VPN Operations Console</h3><p>Service Desk operational console for validating, enabling, monitoring and closing third-party remote-access connections.</p></div><span class="pill blue">SERVICE DESK OPERATIONS</span></div>
+      <div class="vendor-console-metrics">
+        <div class="vendor-metric"><span>Active</span><b id="vcMetricActive">2</b></div>
+        <div class="vendor-metric"><span>Extensions</span><b id="vcMetricExtensions">1</b></div>
+        <div class="vendor-metric"><span>Closed Today</span><b id="vcMetricClosed">7</b></div>
+        <div class="vendor-metric"><span>MFA Success</span><b>100%</b></div>
+      </div>
+
+      <div class="panel vendor-console-panel">
+        <div class="panel-title"><h3>Live Vendor Connection Queue</h3><span class="pill green">OPERATIONAL VIEW</span></div>
+        <div class="table-wrap"><table class="data-table vendor-connection-table"><thead><tr><th>Connection</th><th>Vendor</th><th>User</th><th>Target</th><th>Status</th><th>Disconnect</th></tr></thead><tbody id="vcQueueBody">
+          <tr><td>VC-000123</td><td>ABC Technology Services</td><td>Ven-JSmith</td><td>Core Banking Server</td><td><span class="pill green">Active</span></td><td>11:30 PM</td></tr>
+          <tr><td>VC-000124</td><td>SecureTech Solutions</td><td>Ven-MBrown</td><td>Network Management</td><td><span class="pill blue">Extended</span></td><td>02:00 AM</td></tr>
+          <tr><td>VC-000125</td><td>NetWorks Inc.</td><td>Ven-ALee</td><td>Application Server</td><td><span class="pill gray">Closed</span></td><td>9:15 AM</td></tr>
+        </tbody></table></div>
+      </div>
+
+      <div class="vendor-console-flow workflow wide"><div class="flow-step current"><b>1</b><span>New Request</span></div><i>→</i><div class="flow-step"><b>2</b><span>Validation</span></div><i>→</i><div class="flow-step"><b>3</b><span>Enable VPN</span></div><i>→</i><div class="flow-step"><b>4</b><span>Active Connection</span></div><i>→</i><div class="flow-step"><b>5</b><span>Close</span></div><i>→</i><div class="flow-step"><b>6</b><span>Evidence &amp; Audit</span></div></div>
+
+      <div class="cards two vendor-console-cards">
+        <div class="panel">
+          <div class="panel-title"><h3>1. New Vendor Connection Request</h3><span class="pill">SERVICE DESK</span></div>
+          <p class="panel-help">Information captured from the vendor email before the connection is enabled.</p>
+          <div class="vendor-form-grid">
+            <div class="vendor-form-field"><label>Vendor Name <span class="required">Required</span></label><select id="vcVendor"><option value="">Select approved vendor</option><option>ABC Technology Services</option><option>SecureTech Solutions</option><option>NetWorks Inc.</option><option>Core Systems Partners</option><option>DataBridge Consulting</option><option>FinServe Support</option><option>CloudPoint Services</option><option>Digital Axis</option><option>Northstar Systems Group</option><option>Vertex IT Solutions</option><option>BluePeak Technologies</option><option>Summit Application Support</option><option>IronGate Security</option><option>ClearPath Networks</option><option>Harbor Systems</option></select></div>
+            <div class="vendor-form-field"><label>Person Connecting <span class="required">Required</span></label><input id="vcPerson" type="text" placeholder="e.g., John Smith"></div>
+            <div class="vendor-form-field"><label>System / Application <span class="required">Required</span></label><select id="vcSystem"><option value="">Select approved system</option><option>Core Banking Server</option><option>Core Banking Application</option><option>Network Management</option><option>Application Server</option><option>Database Services</option><option>File Services</option><option>Payment Processing</option><option>Card Management</option><option>CRM</option><option>Microsoft 365</option><option>HRIS</option><option>Service Management</option><option>Security Monitoring</option><option>Backup Infrastructure</option><option>Virtualization Platform</option><option>Identity Services</option><option>Data Warehouse</option><option>Reporting Services</option><option>Branch Application Server</option><option>ATM Management</option><option>Document Management</option><option>Integration Services</option><option>Middleware Platform</option><option>Endpoint Management</option><option>Monitoring Platform</option></select></div>
+            <div class="vendor-form-field"><label>Technology SME / Requestor <span class="required">Required</span></label><select id="vcSme"><option value="">Select Technology SME</option><option>Alex Chen</option><option>Jordan Lee</option><option>Taylor Smith</option><option>Morgan Davis</option><option>Casey Brown</option><option>Riley Wilson</option><option>Jamie Carter</option><option>Sam Patel</option><option>Chris Nguyen</option><option>Robin Clark</option><option>Devon Martin</option><option>Kelly Adams</option><option>Drew Thompson</option><option>Pat Morgan</option><option>Shawn Lewis</option><option>Leslie Walker</option><option>Quinn Hall</option><option>Avery Young</option><option>Reese King</option><option>Cameron Scott</option></select></div>
+            <div class="vendor-form-field full"><label>Reason for Connecting <span class="required">Required</span></label><textarea id="vcReason" rows="2" placeholder="Copy the vendor's reason from the email request"></textarea></div>
+            <div class="vendor-form-field"><label>Technology Ticket / Vendor Case # <span class="required">When available</span></label><input id="vcRef" type="text" placeholder="e.g., INC-123456"></div>
+            <div class="vendor-form-field"><label>Service Desk Analyst</label><input id="vcAnalyst" type="text" value="J. Doe"></div>
+          </div>
+          <div class="button-row"><button class="primary" id="vcValidateBtn">Validate Vendor Connection</button><button class="secondary" id="vcResetBtn">Reset</button></div>
+          <div id="vcRequestResult" class="result hidden"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-title"><h3>2. Validation Console</h3><span class="pill green">PREVENTIVE CONTROL</span></div>
+          <p class="panel-help">Every gate must pass before Service Desk can enable the vendor VPN connection.</p>
+          <div id="vcValidationGrid" class="vc-validation-grid">
+            <div class="vc-gate pending"><span>Vendor is active</span><b>Pending</b></div>
+            <div class="vc-gate pending"><span>Person is approved</span><b>Pending</b></div>
+            <div class="vc-gate pending"><span>Named AD account exists</span><b>Pending</b></div>
+            <div class="vc-gate pending"><span>Target system is approved</span><b>Pending</b></div>
+            <div class="vc-gate pending"><span>Requested scope is authorized</span><b>Pending</b></div>
+            <div class="vc-gate pending"><span>Technology requestor is valid</span><b>Pending</b></div>
+          </div>
+          <div class="callout vc-stop-callout"><b>STOP CONDITION:</b> A failed validation prevents the VPN connection from being enabled. Service Desk must contact the Technology SME and resolve the discrepancy before revalidation.</div>
+          <button class="primary vc-enable-btn" id="vcEnableBtn" disabled>Enable VPN Connection</button>
+          <div id="vcValidationResult" class="result hidden"></div>
+        </div>
+      </div>
+
+      <div class="panel vendor-active-panel">
+        <div class="panel-title"><h3>3–4. Active Vendor Connection Dashboard</h3><span class="pill blue" id="vcStatusPill">READY</span></div>
+        <div class="vc-active-grid">
+          <div class="vc-active-summary"><div class="vc-status-large" id="vcStatusLarge">READY</div><p id="vcActiveDescription">Validate a vendor connection request to begin.</p></div>
+          <div class="vc-active-detail"><span>Connection ID</span><b id="vcConnId">—</b></div>
+          <div class="vc-active-detail"><span>Vendor</span><b id="vcActiveVendor">—</b></div>
+          <div class="vc-active-detail"><span>User</span><b id="vcActiveUser">—</b></div>
+          <div class="vc-active-detail"><span>Target System</span><b id="vcActiveTarget">—</b></div>
+          <div class="vc-active-detail"><span>Technology SME</span><b id="vcActiveSme">—</b></div>
+          <div class="vc-active-detail"><span>Connection Start</span><b id="vcStartTime">—</b></div>
+          <div class="vc-active-detail"><span>Scheduled Disconnect</span><b id="vcDisconnectTime">11:30 PM</b></div>
+        </div>
+        <div class="vc-control-badges"><span>✓ MFA Required</span><span>✓ Named Account</span><span>✓ Least Privilege</span><span>✓ Authorized Scope</span><span>✓ Session Recording</span><span>✓ SIEM Logging</span></div>
+        <div class="vc-active-actions"><button class="secondary" id="vcExtendBtn" disabled>Extend Connection</button><button class="primary" id="vcCloseBtn" disabled>Close Connection</button><button class="secondary" id="vcAutoBtn" disabled>Simulate 11:30 PM Auto Disconnect</button></div>
+        <div id="vcExtensionBox" class="vc-extension-box hidden"><label>New Disconnect Date/Time <input id="vcExtensionTime" type="datetime-local"></label><label>Reason for Extension <textarea id="vcExtensionReason" rows="2" placeholder="Document why access must remain active past 11:30 PM"></textarea></label><div class="button-row"><button class="primary" id="vcApplyExtension">Apply Extension</button><button class="secondary" id="vcCancelExtension">Cancel</button></div></div>
+      </div>
+
+      <div class="panel vendor-evidence-panel">
+        <div class="panel-title"><h3>5–6. Connection Closure &amp; Evidence</h3><span class="pill blue">AUDIT RECORD</span></div>
+        <div id="vcEvidenceEmpty" class="callout">Complete a vendor connection to generate the audit evidence record.</div>
+        <div id="vcEvidence" class="hidden">
+          <div class="ticket-card vc-evidence-card"><div><span class="ticket-id" id="vcEvidenceId">VC-2026-000000</span><h3 id="vcEvidenceVendor">Vendor Connection</h3><p>Vendor Remote Access · Service Desk Evidence</p><div class="ticket-meta"><div><span>User</span><b id="vcEvidenceUser">—</b></div><div><span>Target</span><b id="vcEvidenceTarget">—</b></div><div><span>Technology SME</span><b id="vcEvidenceSme">—</b></div><div><span>Request Reference</span><b id="vcEvidenceRef">—</b></div><div><span>Connection Start</span><b id="vcEvidenceStart">—</b></div><div><span>Connection End</span><b id="vcEvidenceEnd">—</b></div><div><span>Closure Method</span><b id="vcEvidenceClosure">—</b></div><div><span>Analyst</span><b id="vcEvidenceAnalyst">—</b></div></div></div><span class="pill green">EVIDENCE RETAINED</span></div>
+          <div class="control-status-grid"><div><span>MFA</span><b class="pill green">Successful</b></div><div><span>Named Account</span><b class="pill green">Confirmed</b></div><div><span>Authorized Scope</span><b class="pill green">Confirmed</b></div><div><span>Session Recording</span><b class="pill green">Available</b></div><div><span>SIEM Transmission</span><b class="pill green">Confirmed</b></div><div><span>Connection Ticket</span><b class="pill blue">Recorded</b></div></div>
+          <div class="callout"><b>Audit trail:</b> The completed record captures who connected, what system was accessed, why access was required, who requested it, when the connection started and ended, how it was closed, and the associated monitoring evidence.</div>
+        </div>
+      </div>
+
+      <div class="panel vendor-history-panel">
+        <div class="panel-title"><h3>5. Connection History &amp; Audit Search</h3><span class="pill blue">AUDIT SEARCH</span></div>
+        <p class="panel-help">Search completed and active vendor connection records by vendor, user, target system, connection ID or status. This is a simulated evidence index for portfolio demonstration purposes.</p>
+        <div class="vendor-search-grid">
+          <input id="vcHistorySearch" type="text" placeholder="Search vendor, user, target or connection ID">
+          <select id="vcHistoryStatus"><option value="all">All statuses</option><option value="Active">Active</option><option value="Extended">Extended</option><option value="Closed">Closed</option></select>
+          <button class="secondary" id="vcHistoryClear">Clear Search</button>
+        </div>
+        <div class="table-wrap"><table class="data-table vendor-connection-table"><thead><tr><th>Connection</th><th>Vendor</th><th>User</th><th>Target</th><th>Status</th><th>Start</th><th>End / Disconnect</th><th>Closure</th></tr></thead><tbody id="vcHistoryBody">
+          <tr data-status="Closed"><td>VC-000118</td><td>ABC Technology Services</td><td>Ven-RBrown</td><td>Core Banking Server</td><td><span class="pill gray">Closed</span></td><td>09/16/26 08:42 PM</td><td>09/16/26 10:58 PM</td><td>Vendor Notification</td></tr>
+          <tr data-status="Extended"><td>VC-000121</td><td>SecureTech Solutions</td><td>Ven-MBrown</td><td>Network Management</td><td><span class="pill blue">Extended</span></td><td>09/16/26 09:15 PM</td><td>09/17/26 02:00 AM</td><td>Extension Approved</td></tr>
+          <tr data-status="Closed"><td>VC-000122</td><td>NetWorks Inc.</td><td>Ven-ALee</td><td>Application Server</td><td><span class="pill gray">Closed</span></td><td>09/16/26 06:10 PM</td><td>09/16/26 09:15 PM</td><td>Automatic Disconnect</td></tr>
+          <tr data-status="Active"><td>VC-000123</td><td>ABC Technology Services</td><td>Ven-JSmith</td><td>Core Banking Server</td><td><span class="pill green">Active</span></td><td>09/17/26 07:30 AM</td><td>11:30 PM</td><td>Open</td></tr>
+          <tr data-status="Extended"><td>VC-000124</td><td>SecureTech Solutions</td><td>Ven-MBrown</td><td>Network Management</td><td><span class="pill blue">Extended</span></td><td>09/17/26 08:05 AM</td><td>02:00 AM</td><td>Extension Active</td></tr>
+        </tbody></table></div>
+        <div id="vcHistoryEmpty" class="callout hidden">No connection records match the current search criteria.</div>
+      </div>
+
+      <div class="panel vendor-monitoring-panel">
+        <div class="panel-title"><h3>Ongoing Monitoring &amp; Review</h3><span class="pill green">DETECTIVE CONTROL</span></div>
+        <p class="panel-help">Periodic review uses evidence generated by the Vendor Operations Console plus vendor recertification and risk information. The controls below illustrate how operational activity becomes management-level oversight.</p>
+        <div class="vendor-monitoring-metrics">
+          <div class="vendor-monitor-card"><span>Connections Reviewed</span><b id="vmConnections">24</b><small>Current review period</small></div>
+          <div class="vendor-monitor-card"><span>Access Recertified</span><b id="vmRecertified">22</b><small>Vendor staff / named accounts</small></div>
+          <div class="vendor-monitor-card"><span>Exceptions</span><b id="vmExceptions">2</b><small>Require follow-up</small></div>
+          <div class="vendor-monitor-card"><span>Evidence Complete</span><b id="vmEvidence">96%</b><small>Required connection evidence</small></div>
+        </div>
+        <div class="cards two vendor-monitor-grid">
+          <div class="panel inset-panel"><div class="panel-title"><h3>Monitoring Checks</h3><span class="pill blue">MONTHLY</span></div><div class="control-line"><span>Vendor approved staff reconciled to named AD accounts</span><b>Pass</b></div><div class="control-line"><span>Connection records reviewed for scope and duration</span><b>Pass</b></div><div class="control-line"><span>Extensions have documented reason and revised disconnect time</span><b>2 to review</b></div><div class="control-line"><span>Session recording / SIEM evidence available</span><b>Pass</b></div><div class="control-line"><span>Inactive vendor personnel removed from access</span><b>Pass</b></div></div>
+          <div class="panel inset-panel"><div class="panel-title"><h3>Review Output</h3><span class="pill gray" id="vmReviewStatus">NOT RUN</span></div><div class="review-output"><div><span>Last Review</span><b id="vmLastReview">—</b></div><div><span>Reviewer</span><b id="vmReviewer">Technology Services Manager</b></div><div><span>Evidence Sources</span><b>Connection History · Access Matrix · Recertification</b></div><div><span>Open Follow-up</span><b id="vmFollowup">2 exceptions</b></div></div><button class="primary" id="vmRunReview">Run Monthly Review</button></div>
+        </div>
+        <div id="vmReviewResult" class="result hidden"></div>
+      </div>
+
+      <div class="cards two vendor-lifecycle-cards">
+        <div class="panel"><div class="panel-title"><h3>Connection Control Rules</h3><span class="pill green">CONTROL BOUNDARY</span></div><div class="control-line"><span>Approved vendor/person required</span><b>Before connection</b></div><div class="control-line"><span>Access scope cannot be expanded here</span><b>Phase 2 required</b></div><div class="control-line"><span>Generic vendor accounts</span><b>Prohibited</b></div><div class="control-line"><span>MFA</span><b>Required</b></div><div class="control-line"><span>Session recording</span><b>Required</b></div></div>
+        <div class="panel"><div class="panel-title"><h3>Connection Closure Rules</h3><span class="pill blue">11:30 PM CONTROL</span></div><div class="control-line"><span>Vendor disconnect notification</span><b>Service Desk closes</b></div><div class="control-line"><span>Automatic nightly disconnect</span><b>11:30 PM</b></div><div class="control-line"><span>Past 11:30 PM required</span><b>Vendor notifies Service Desk</b></div><div class="control-line"><span>Extension</span><b>Reason + new disconnect time</b></div><div class="control-line"><span>Evidence</span><b>Retained with connection record</b></div></div>
+      </div>
+
+      <div class="notice governance-note"><b>Portfolio note:</b> Vendor data and names shown in this demonstration will be fictional. The workflow is designed to demonstrate third-party remote-access governance, least-privilege validation, accountability and audit-ready evidence.</div>
+    </section>
+
+    <section id="controls" class="page">
+      <div class="page-intro"><span class="eyebrow">GOVERNANCE · RISK · COMPLIANCE</span><h2>Controls Library</h2><p>Example control records connecting operational activity to risk and audit evidence.</p></div>
+      <div class="control-table">
+        <div class="row header"><span>Control</span><span>Area</span><span>Type</span><span>Frequency</span><span>Status</span></div>
+        <div class="row"><b>IAM-PR-001 Password verification</b><span>IAM</span><span>Preventive</span><span>Per request</span><span class="pill green">Effective</span></div>
+        <div class="row"><b>IAM-NH-002 New hire access approval</b><span>IAM</span><span>Preventive</span><span>Per hire</span><span class="pill green">Effective</span></div>
+        <div class="row"><b>IAM-TR-003 Termination access removal</b><span>IAM</span><span>Preventive</span><span>Per termination</span><span class="pill blue">Testing</span></div>
+        <div class="row"><b>ITAM-004 Asset reconciliation</b><span>ITAM</span><span>Detective</span><span>Monthly</span><span class="pill green">Effective</span></div>
+        <div class="row"><b>CHG-005 CAB approval</b><span>ITSM</span><span>Preventive</span><span>Per change</span><span class="pill green">Effective</span></div>
+      </div>
+    </section>
+
+    <section id="audit" class="page">
+      <div class="page-intro"><span class="eyebrow">ASSURANCE</span><h2>Audit Dashboard</h2><p>Demonstration of how controls can be tested and tracked to remediation.</p></div>
+      <div class="cards four"><div class="metric"><span>Controls Tested</span><strong>27</strong><small>Quarter to date</small></div><div class="metric"><span>Effective</span><strong>23</strong><small>85% pass rate</small></div><div class="metric"><span>Findings</span><strong>4</strong><small>Open</small></div><div class="metric"><span>Remediation</span><strong>75%</strong><small>On schedule</small></div></div>
+      <div class="panel"><div class="panel-title"><h3>Sample finding</h3><span class="pill red">HIGH</span></div><h4>Finding GRC-2026-004 — Missing verification evidence</h4><p><b>Observation:</b> A sample of password-reset tickets contained incomplete verification documentation.</p><p><b>Risk:</b> Inability to demonstrate that the identity verification control operated as designed.</p><p><b>Remediation:</b> Standardize required ticket fields, add analyst prompts and perform monthly quality sampling.</p></div>
+    </section>
+
+    <footer>
+      <b>NorthStar Community Credit Union — Demonstration Environment</b>
+      <span>Portfolio concept · Fictional organization · No production credentials or proprietary data</span>
+    </footer>
+  </main>
+</div>
+<script src="script.js"></script>
+
+  <div id="workflowModal" class="workflow-modal hidden" role="dialog" aria-modal="true" aria-label="Password Reset Process Workflow">
+    <div class="workflow-modal-backdrop" id="workflowBackdrop"></div>
+    <div class="workflow-modal-content">
+      <button type="button" class="workflow-close" id="closeWorkflow" aria-label="Close workflow">×</button>
+      <img id="workflowModalImage" src="password_reset_workflow.png" alt="Password Reset Process Service Desk Workflow">
+    </div>
+  </div>
+
+</body>
+</html>
